@@ -703,6 +703,10 @@ footer.foot .fine { width: 100%; font-size: 11.5px; color: var(--ink-low); borde
 .spec .row:last-child { border-bottom: 0; }
 .spec .tag { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-low); letter-spacing: .08em; }
 .demo-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-bottom: 16px; }
+/* copyable snippet: the minimal real markup a component expects */
+.snippet { position: relative; margin: 14px 0 16px; border: 1px solid var(--hairline); border-radius: var(--r-m); background: var(--well); }
+.snippet pre { margin: 0; padding: 13px 96px 13px 16px; overflow-x: auto; font-family: var(--font-mono); font-size: 11.5px; line-height: 1.65; color: var(--ink-mid); }
+.snippet [data-copy] { position: absolute; top: 8px; right: 8px; }
 
 /* light-theme component adjustments */
 html.theme-light .elev-stage { background: radial-gradient(600px 320px at 20% 10%, rgba(87,87,217,.2), transparent 60%), radial-gradient(520px 300px at 85% 90%, rgba(141,92,240,.15), transparent 65%), var(--panel); }

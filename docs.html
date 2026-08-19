@@ -71,34 +71,34 @@
       <header>
         <div class="eyebrow">( COLOUR )</div>
         <h2>Three families, strict jobs</h2>
-        <p>Neutrals carry the interface. One accent carries attention. Semantic colours carry state. The pale versions are for pills and fills. The darker validated versions are for chart marks. They do not swap jobs.</p>
+        <p>Neutrals carry the interface. One accent carries attention. Semantic colours carry state. The pale versions are for pills and fills. The darker validated versions are for chart marks. They do not swap jobs. Every colour is a custom property on <code style="font-family:var(--font-mono);font-size:12px">:root</code>; the variable name sits beside each swatch, and clicking a swatch copies it. The same values, machine readable, are in <a href="tokens.json" style="color:var(--accent)">tokens.json</a>.</p>
       </header>
       <h3 class="xh" style="margin-bottom:10px">Neutrals</h3>
       <div class="swatches">
-        <div class="sw" data-hex="#0A0B12"><div class="chip" style="background:#0A0B12"></div><div class="meta">void<code>#0A0B12</code></div></div>
-        <div class="sw" data-hex="#12141F"><div class="chip" style="background:#12141F"></div><div class="meta">panel<code>#12141F</code></div></div>
-        <div class="sw" data-hex="#181B2A"><div class="chip" style="background:#181B2A"></div><div class="meta">panel-2<code>#181B2A</code></div></div>
-        <div class="sw" data-hex="#666B8A"><div class="chip" style="background:#666B8A"></div><div class="meta">ink-low<code>#666B8A</code></div></div>
-        <div class="sw" data-hex="#A9ADC7"><div class="chip" style="background:#A9ADC7"></div><div class="meta">ink-mid<code>#A9ADC7</code></div></div>
-        <div class="sw" data-hex="#EFF0F8"><div class="chip" style="background:#EFF0F8"></div><div class="meta">ink-hi<code>#EFF0F8</code></div></div>
+        <div class="sw" data-var="--void" data-hex="#0A0B12"><div class="chip" style="background:#0A0B12"></div><div class="meta">void<code>--void</code><code>#0A0B12</code></div></div>
+        <div class="sw" data-var="--panel" data-hex="#12141F"><div class="chip" style="background:#12141F"></div><div class="meta">panel<code>--panel</code><code>#12141F</code></div></div>
+        <div class="sw" data-var="--panel-2" data-hex="#181B2A"><div class="chip" style="background:#181B2A"></div><div class="meta">panel-2<code>--panel-2</code><code>#181B2A</code></div></div>
+        <div class="sw" data-var="--ink-low" data-hex="#666B8A"><div class="chip" style="background:#666B8A"></div><div class="meta">ink-low<code>--ink-low</code><code>#666B8A</code></div></div>
+        <div class="sw" data-var="--ink-mid" data-hex="#A9ADC7"><div class="chip" style="background:#A9ADC7"></div><div class="meta">ink-mid<code>--ink-mid</code><code>#A9ADC7</code></div></div>
+        <div class="sw" data-var="--ink-hi" data-hex="#EFF0F8"><div class="chip" style="background:#EFF0F8"></div><div class="meta">ink-hi<code>--ink-hi</code><code>#EFF0F8</code></div></div>
       </div>
       <h3 class="xh" style="margin:20px 0 10px">Accent and state, pale steps for pills</h3>
       <div class="swatches">
-        <div class="sw" data-hex="#8D8DF5"><div class="chip" style="background:#8D8DF5"></div><div class="meta">accent<code>#8D8DF5</code></div></div>
-        <div class="sw" data-hex="#5757D9"><div class="chip" style="background:#5757D9"></div><div class="meta">accent-deep<code>#5757D9</code></div></div>
-        <div class="sw" data-hex="#5EDBA6"><div class="chip" style="background:#5EDBA6"></div><div class="meta">mint, fine<code>#5EDBA6</code></div></div>
-        <div class="sw" data-hex="#F5C951"><div class="chip" style="background:#F5C951"></div><div class="meta">amber, soon<code>#F5C951</code></div></div>
-        <div class="sw" data-hex="#F8929F"><div class="chip" style="background:#F8929F"></div><div class="meta">rose, broken<code>#F8929F</code></div></div>
-        <div class="sw" data-hex="#6EC6F5"><div class="chip" style="background:#6EC6F5"></div><div class="meta">sky, note<code>#6EC6F5</code></div></div>
+        <div class="sw" data-var="--accent" data-hex="#8D8DF5"><div class="chip" style="background:#8D8DF5"></div><div class="meta">accent<code>--accent</code><code>#8D8DF5</code></div></div>
+        <div class="sw" data-var="--accent-deep" data-hex="#5757D9"><div class="chip" style="background:#5757D9"></div><div class="meta">accent-deep<code>--accent-deep</code><code>#5757D9</code></div></div>
+        <div class="sw" data-var="--mint" data-hex="#5EDBA6"><div class="chip" style="background:#5EDBA6"></div><div class="meta">mint, fine<code>--mint</code><code>#5EDBA6</code></div></div>
+        <div class="sw" data-var="--amber" data-hex="#F5C951"><div class="chip" style="background:#F5C951"></div><div class="meta">amber, soon<code>--amber</code><code>#F5C951</code></div></div>
+        <div class="sw" data-var="--rose" data-hex="#F8929F"><div class="chip" style="background:#F8929F"></div><div class="meta">rose, broken<code>--rose</code><code>#F8929F</code></div></div>
+        <div class="sw" data-var="--sky" data-hex="#6EC6F5"><div class="chip" style="background:#6EC6F5"></div><div class="meta">sky, note<code>--sky</code><code>#6EC6F5</code></div></div>
       </div>
       <h3 class="xh" style="margin:20px 0 10px">Chart marks, checked for contrast</h3>
       <div class="swatches">
-        <div class="sw" data-hex="#6A6AE8"><div class="chip" style="background:#6A6AE8"></div><div class="meta">series-1<code>#6A6AE8</code></div></div>
-        <div class="sw" data-hex="#2FA97C"><div class="chip" style="background:#2FA97C"></div><div class="meta">series-2<code>#2FA97C</code></div></div>
-        <div class="sw" data-hex="#B8831F"><div class="chip" style="background:#B8831F"></div><div class="meta">series-3<code>#B8831F</code></div></div>
-        <div class="sw" data-hex="#D95C6E"><div class="chip" style="background:#D95C6E"></div><div class="meta">series-4<code>#D95C6E</code></div></div>
-        <div class="sw" data-hex="#3E9CD6"><div class="chip" style="background:#3E9CD6"></div><div class="meta">series-5<code>#3E9CD6</code></div></div>
-        <div class="sw" data-hex="#3A3F58"><div class="chip" style="background:#3A3F58"></div><div class="meta">comparison<code>#3A3F58</code></div></div>
+        <div class="sw" data-var="--ch-1" data-hex="#6A6AE8"><div class="chip" style="background:#6A6AE8"></div><div class="meta">series-1<code>--ch-1</code><code>#6A6AE8</code></div></div>
+        <div class="sw" data-var="--ch-2" data-hex="#2FA97C"><div class="chip" style="background:#2FA97C"></div><div class="meta">series-2<code>--ch-2</code><code>#2FA97C</code></div></div>
+        <div class="sw" data-var="--ch-3" data-hex="#B8831F"><div class="chip" style="background:#B8831F"></div><div class="meta">series-3<code>--ch-3</code><code>#B8831F</code></div></div>
+        <div class="sw" data-var="--ch-4" data-hex="#D95C6E"><div class="chip" style="background:#D95C6E"></div><div class="meta">series-4<code>--ch-4</code><code>#D95C6E</code></div></div>
+        <div class="sw" data-var="--ch-5" data-hex="#3E9CD6"><div class="chip" style="background:#3E9CD6"></div><div class="meta">series-5<code>--ch-5</code><code>#3E9CD6</code></div></div>
+        <div class="sw" data-var="--ch-neutral" data-hex="#3A3F58"><div class="chip" style="background:#3A3F58"></div><div class="meta">comparison<code>--ch-neutral</code><code>#3A3F58</code></div></div>
       </div>
       <div class="card audit">
         <h3 class="xh">Palette check, computed rather than eyeballed</h3>
@@ -212,6 +212,14 @@
           </span>
         </div>
       </div>
+      <div class="snippet"><button class="btn btn-glass btn-sm" type="button" data-copy>Copy</button><pre>&lt;div class="savebar" id="savebar" role="status" aria-live="polite"&gt;
+  &lt;span class="sdot" aria-hidden="true"&gt;&lt;/span&gt;
+  &lt;span class="n"&gt;&lt;b&gt;0&lt;/b&gt; unsaved changes&lt;/span&gt;
+  &lt;button class="btn btn-ghost btn-sm" type="button" data-discard&gt;Discard&lt;/button&gt;
+  &lt;button class="btn btn-primary btn-sm" type="button" data-save&gt;Save&lt;/button&gt;
+&lt;/div&gt;
+&lt;form data-savebar="#savebar"&gt;…&lt;/form&gt;
+&lt;!-- proxima.js snapshots every field on load and counts what differs --&gt;</pre></div>
       <div class="rule-note">rule: the count compares every field against what it was when the page loaded, so undoing an edit by hand takes the number back down. It never claims you have unsaved work when nothing differs.</div>
     </section>
 
@@ -227,6 +235,10 @@
         <button class="btn btn-danger" type="button">Revoke token</button>
         <button class="btn btn-primary" type="button" disabled>New alert rule</button>
       </div>
+      <div class="snippet"><button class="btn btn-glass btn-sm" type="button" data-copy>Copy</button><pre>&lt;button class="btn btn-primary" type="button"&gt;New alert rule&lt;/button&gt;
+&lt;button class="btn btn-glass" type="button"&gt;Export&lt;/button&gt;
+&lt;button class="btn btn-ghost" type="button"&gt;Cancel&lt;/button&gt;
+&lt;button class="btn btn-danger" type="button"&gt;Revoke token&lt;/button&gt;</pre></div>
       <div class="demo-row">
         <label class="input"><span aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-4.5-4.5"/></svg></span><input type="text" placeholder="Search hosts and services"></label>
         <div class="cta-combo"><input type="email" placeholder="Email for release notes" aria-label="Email for release notes"><button class="btn btn-primary" type="button">Keep me posted</button></div>
@@ -237,6 +249,8 @@
         <button class="fchip" type="button">Degraded <b>2</b></button>
         <button class="fchip" type="button">Down <b>1</b></button>
       </div>
+      <div class="snippet"><button class="btn btn-glass btn-sm" type="button" data-copy>Copy</button><pre>&lt;button class="fchip on" type="button"&gt;All &lt;b&gt;33&lt;/b&gt;&lt;/button&gt;
+&lt;button class="fchip" type="button"&gt;Healthy &lt;b&gt;29&lt;/b&gt;&lt;/button&gt;</pre></div>
       <div class="demo-row">
         <div class="seg" role="group" aria-label="View"><button class="on" type="button">Board</button><button type="button">List</button><button type="button">Load</button></div>
         <button class="toggle on" type="button" role="switch" aria-checked="true" aria-label="Live updates"></button>
@@ -289,6 +303,21 @@
           </div>
         </div>
       </div>
+      <div class="snippet"><button class="btn btn-glass btn-sm" type="button" data-copy>Copy</button><pre>&lt;div class="field"&gt;
+  &lt;label for="host"&gt;Host name&lt;/label&gt;
+  &lt;input type="text" id="host" value="ganymede"&gt;
+  &lt;span class="help"&gt;Shown everywhere this machine appears.&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="field invalid"&gt;
+  &lt;label for="hook"&gt;Webhook&lt;/label&gt;
+  &lt;input type="url" id="hook" value="htp://alerts.home"&gt;
+  &lt;span class="error"&gt;Needs to start with https://&lt;/span&gt;
+&lt;/div&gt;</pre></div>
+      <div class="snippet"><button class="btn btn-glass btn-sm" type="button" data-copy>Copy</button><pre>&lt;div class="setrow"&gt;
+  &lt;div class="info"&gt;&lt;b&gt;Live updates&lt;/b&gt;&lt;span&gt;Stream new readings in as they arrive.&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="ctl"&gt;&lt;button class="toggle on" type="button" role="switch" aria-checked="true" aria-label="Live updates"&gt;&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;</pre></div>
       <div class="rule-note">rule: error text never appears without the rose border, and the rose border never appears without error text. Say it twice or do not say it.</div>
     </section>
 
@@ -320,6 +349,10 @@
           <span style="font-size:12px;color:var(--ink-low)">facts stay mono and neutral, never coloured</span>
         </div>
       </div>
+      <div class="snippet"><button class="btn btn-glass btn-sm" type="button" data-copy>Copy</button><pre>&lt;span class="pill pill-mint"&gt;&lt;i class="dot"&gt;&lt;/i&gt;Healthy&lt;/span&gt;
+&lt;span class="pill pill-amber"&gt;&lt;i class="dot"&gt;&lt;/i&gt;Degraded&lt;/span&gt;
+&lt;span class="pill pill-rose"&gt;&lt;i class="dot"&gt;&lt;/i&gt;Down&lt;/span&gt;
+&lt;span class="chip-f"&gt;5432&lt;/span&gt;  &lt;!-- facts stay mono and neutral --&gt;</pre></div>
     </section>
 
     <section id="kpi">
@@ -347,6 +380,12 @@
           <div class="k-foot"><span class="delta up">+120 GB</span><span>of 6 TB pooled</span></div>
         </div>
       </div>
+      <div class="snippet"><button class="btn btn-glass btn-sm" type="button" data-copy>Copy</button><pre>&lt;div class="kpi"&gt;
+  &lt;div class="k-label"&gt;Services up&lt;/div&gt;
+  &lt;div class="k-val"&gt;31 / 33&lt;/div&gt;
+  &lt;div class="k-foot"&gt;&lt;span class="delta down"&gt;2 down&lt;/span&gt;&lt;span&gt;across 4 hosts&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- add kpi-serif for a number with weight, kpi-aurora for a gradient. One of each per screen at most --&gt;</pre></div>
     </section>
 
     <section id="table">
@@ -417,6 +456,21 @@
           </div>
         </div>
       </div>
+      <div class="snippet"><button class="btn btn-glass btn-sm" type="button" data-copy>Copy</button><pre>&lt;div class="xtable"&gt;
+  &lt;header&gt;&lt;h3&gt;Services&lt;/h3&gt;&lt;span class="pill pill-mute"&gt;31 / 33 up&lt;/span&gt;&lt;/header&gt;
+  &lt;div class="xrow"&gt;
+    &lt;button type="button" aria-expanded="false" aria-controls="row-1"&gt;
+      &lt;span class="id"&gt;postgres&lt;/span&gt;
+      &lt;span class="desc"&gt;Primary database&lt;small&gt;kryptonane · cloud&lt;/small&gt;&lt;/span&gt;
+      &lt;span class="chips"&gt;&lt;span class="chip-f"&gt;5432&lt;/span&gt;&lt;span class="pill pill-amber"&gt;Degraded&lt;/span&gt;&lt;/span&gt;
+      &lt;span class="chev" aria-hidden="true"&gt;▾&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class="xbody" id="row-1" role="region" aria-label="postgres details"&gt;
+      &lt;div class="xdetail"&gt;&lt;div class="f"&gt;&lt;label&gt;Image&lt;/label&gt;&lt;div&gt;postgres:16.4&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="xactions"&gt;&lt;button class="btn btn-glass" type="button"&gt;View logs&lt;/button&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre></div>
       <div class="rule-note">rule: the buttons live inside the opened row. A closed row offers exactly one thing to do, which is open it.</div>
     </section>
 
@@ -441,6 +495,15 @@
           <div class="pcard"><div class="top"><span class="av">MA</span><div class="who"><b>mars</b><span>spare box · shut down</span></div><div class="act"><button type="button" aria-label="Wake mars"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v8"/><path d="M6.5 7.5a8 8 0 1 0 11 0"/></svg></button><button type="button" aria-label="View logs for mars"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M9 9h6M9 13h6"/></svg></button></div></div><div class="meta"><span class="chip-f">off since 09 Jul</span><span class="chip-f">2 vms idle</span></div></div>
         </div>
       </div>
+      <div class="snippet"><button class="btn btn-glass btn-sm" type="button" data-copy>Copy</button><pre>&lt;div class="board"&gt;
+  &lt;div class="col col-mint"&gt;
+    &lt;header&gt;&lt;span class="pill pill-mint"&gt;&lt;i class="dot"&gt;&lt;/i&gt;Online&lt;/span&gt;&lt;span class="n"&gt;1&lt;/span&gt;&lt;/header&gt;
+    &lt;div class="pcard"&gt;
+      &lt;div class="top"&gt;&lt;span class="av"&gt;JU&lt;/span&gt;&lt;div class="who"&gt;&lt;b&gt;jupiter&lt;/b&gt;&lt;span&gt;workstation · 32 cores&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="meta"&gt;&lt;span class="chip-f"&gt;load 1.2&lt;/span&gt;&lt;span class="chip-f"&gt;up 42d&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre></div>
     </section>
 
     <section id="charts">
@@ -507,6 +570,10 @@
         <button class="navtoggle" type="button" style="display:grid" aria-label="Navigation toggle specimen"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
         <span class="t-data">&lt;button class="navtoggle" data-nav-toggle="#app-nav"&gt;</span>
       </div>
+      <div class="snippet"><button class="btn btn-glass btn-sm" type="button" data-copy>Copy</button><pre>&lt;button class="navtoggle" type="button" data-nav-toggle="#app-nav"
+        aria-label="Open navigation" aria-expanded="false"&gt;…&lt;/button&gt;
+&lt;aside class="side" id="app-nav"&gt;…&lt;/aside&gt;
+&lt;!-- proxima.js wires the scrim, the focus trap, Escape and aria-expanded --&gt;</pre></div>
       <div class="sub" style="font-size:12.5px;color:var(--ink-low);margin-top:10px">Narrow this window past 880 and the live one appears in the top left, over the rail it opens. On the console pages it sits at the head of the topbar instead, because there is already a bar to put it in.</div>
       <div class="rule-note">rule: a closed drawer is <code style="font-family:var(--font-mono);font-size:11.5px">visibility: hidden</code>, not <code style="font-family:var(--font-mono);font-size:11.5px">display: none</code>. Hidden keeps its links out of the tab order, which display would also do, but it still allows the panel to slide.</div>
 

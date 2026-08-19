@@ -10,7 +10,8 @@
      #fab            display options panel (theme / background / accent)
      .xrow           expandable table rows
      .seg .fchip .toggle   demo active-state behavior
-     .sw             swatch click-to-copy
+     .sw             swatch click-to-copy (copies the custom property name)
+     .snippet        copy button on copyable markup blocks
 
    Manual API:
      Proxima.spark(svgEl, opts)   area chart + dotted forecast (+ tooltip)
@@ -338,15 +339,32 @@
     });
   });
 
-  /* ---------- swatch click-to-copy ---------- */
+  /* ---------- swatch click-to-copy ----------
+     Copies the custom property name (data-var), so what lands in the paste is
+     the thing new CSS should actually use. Falls back to the hex. */
   document.querySelectorAll('.sw').forEach(function (sw) {
-    if (!sw.dataset.hex) return;
-    sw.setAttribute('title', 'Click to copy ' + sw.dataset.hex);
+    var val = sw.dataset.var || sw.dataset.hex;
+    if (!val) return;
+    sw.setAttribute('title', 'Click to copy ' + val);
     sw.addEventListener('click', function () {
-      if (navigator.clipboard) navigator.clipboard.writeText(sw.dataset.hex);
+      if (navigator.clipboard) navigator.clipboard.writeText(val);
       var m = sw.querySelector('.meta code'); if (!m) return;
       var old = m.textContent;
       m.textContent = 'copied!'; setTimeout(function () { m.textContent = old; }, 900);
+    });
+  });
+
+  /* ---------- copyable snippets ----------
+     Markup contract:  <div class="snippet"><button data-copy>Copy</button>
+                       <pre>…escaped markup…</pre></div> */
+  document.querySelectorAll('.snippet').forEach(function (box) {
+    var btn = box.querySelector('[data-copy]'), pre = box.querySelector('pre');
+    if (!btn || !pre) return;
+    btn.addEventListener('click', function () {
+      if (navigator.clipboard) navigator.clipboard.writeText(pre.textContent);
+      var old = btn.textContent;
+      btn.textContent = 'Copied';
+      setTimeout(function () { btn.textContent = old; }, 900);
     });
   });
 

@@ -67,7 +67,9 @@ TYPE       --font-ui Outfit, body weight 380 · --font-serif Instrument Serif
 
 ## 4. Recipes
 
-Every class below already exists in `proxima.css`. Copy the structure as it is.
+Every class below already exists in `proxima.css`. Copy the structure as it is. The same
+recipes sit under each running component in `docs.html` with a copy button, and every colour
+swatch there copies its custom property name.
 
 **Buttons and controls**
 

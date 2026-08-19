@@ -77,7 +77,9 @@ Six rules the system does not break.
 
 All tokens are CSS custom properties on `:root`, which is the dark theme. The light theme overrides
 them under `html.theme-light`. Accents swap under `html.accent-teal`, `-ember` and `-lime`. Exact
-values live in `tokens.json`.
+values live in `tokens.json`. The property names are the bare token names below, no prefix:
+`--void`, `--ink-low`, `--ch-1`. The docs page shows the variable name beside every swatch, and
+clicking a swatch copies the name, since the name is what new CSS should use, never the hex.
 
 ### Neutrals
 
@@ -243,7 +245,8 @@ collapses instead of leaving a seam.
 
 ## Components
 
-All of these live in `css/proxima.css` and are shown working in `docs.html`.
+All of these live in `css/proxima.css` and are shown working in `docs.html`, where each one
+carries a copyable snippet of the minimal markup the stylesheet expects.
 
 ### Controls
 
