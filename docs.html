@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Proxima · Design foundation</title>
 <link rel="stylesheet" href="css/proxima.css">
-<script>(function(){try{var h=document.documentElement,t=localStorage.getItem('proxima-theme'),a=localStorage.getItem('proxima-accent'),b=localStorage.getItem('proxima-bg');if(t==='light')h.classList.add('theme-light');if(a&&a!=='indigo')h.classList.add('accent-'+a);if(b==='flat')h.classList.add('bg-flat');}catch(e){}})();</script>
+<script>(function(){try{var h=document.documentElement,t=localStorage.getItem('proxima-theme'),a=localStorage.getItem('proxima-accent'),b=localStorage.getItem('proxima-bg');if(t?t==='light':(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches))h.classList.add('theme-light');if(a&&a!=='indigo')h.classList.add('accent-'+a);if(b==='flat')h.classList.add('bg-flat');}catch(e){}})();</script>
 <script src="js/proxima.js" defer></script>
 </head>
 <body class="docs">
@@ -104,7 +104,7 @@
         <div class="sw" data-var="--ch-neutral" data-hex="#3A3F58"><div class="chip" style="background:#3A3F58"></div><div class="meta">comparison<code>--ch-neutral</code><code>#3A3F58</code></div></div>
       </div>
       <div class="card audit">
-        <h3 class="xh">Palette check, computed rather than eyeballed</h3>
+        <h3 class="xh">Palette and accessibility check, computed rather than eyeballed</h3>
         <div class="sub" style="font-size:12px;color:var(--ink-low);margin-top:2px">The chart colours were checked against #12141F on dark and #F7F8FC on light using an OKLab and colour vision test. The light set (#5050D6 #1F8A63 #8A6200 #D23B72 #2380BC) passes everything with no warnings.</div>
         <table>
           <thead><tr><th>Check</th><th>Result</th><th>Detail</th></tr></thead>
@@ -114,6 +114,13 @@
             <tr><td>Colour vision</td><td><span class="pill pill-amber">WARN</span></td><td>rose and amber sit 7.5 apart under deuteranopia. Allowed, because every status also has a word and a dot</td></tr>
             <tr><td>Normal vision floor</td><td><span class="pill pill-mint">PASS</span></td><td>closest pair 15.2, floor is 15</td></tr>
             <tr><td>Contrast on surface</td><td><span class="pill pill-mint">PASS</span></td><td>all five at 3:1 or better</td></tr>
+            <tr><td>ink-low on dark</td><td><span class="pill pill-amber">WARN</span></td><td>#666B8A is 3.5:1 on panel and 3.8:1 on void, under the 4.5:1 floor. Restricted to decorative and duplicated text, never the sole carrier of essential copy</td></tr>
+            <tr><td>ink-low on light</td><td><span class="pill pill-amber">WARN</span></td><td>#9094B0 is 2.8:1 on the light panel. Same restriction applies</td></tr>
+            <tr><td>ink-mid, ink-hi</td><td><span class="pill pill-mint">PASS</span></td><td>8.3:1 and 16.1:1 on panel dark, 7.2:1 and better on light. Body and primary text clear 4.5:1 everywhere</td></tr>
+            <tr><td>Expandable rows</td><td><span class="pill pill-mint">PASS</span></td><td>every trigger is a real button with aria-expanded and aria-controls, so Enter and Space toggle it</td></tr>
+            <tr><td>Reduced motion</td><td><span class="pill pill-mint">PASS</span></td><td>prefers-reduced-motion forces the flat background whatever is stored: no blooms, no drift, no grain, skeletons rest still</td></tr>
+            <tr><td>Initial theme</td><td><span class="pill pill-mint">PASS</span></td><td>prefers-color-scheme decides when nothing is stored, a stored choice wins from then on</td></tr>
+            <tr><td>Focus ring</td><td><span class="pill pill-mint">PASS</span></td><td>global :focus-visible accent outline on every control, and a capsule input shows focus as the accent border on the capsule itself</td></tr>
           </tbody>
         </table>
       </div>

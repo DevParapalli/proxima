@@ -92,12 +92,19 @@ clicking a swatch copies the name, since the name is what new CSS should use, ne
 | `--panel-2` | `#181B2A` | `#FFFFFF` | raised solid panel |
 | `--ink-hi` | `#EFF0F8` | `#1B1D2E` | primary text |
 | `--ink-mid` | `#A9ADC7` | `#4E5270` | body text |
-| `--ink-low` | `#666B8A` | `#9094B0` | muted text, labels, inactive nav |
+| `--ink-low` | `#666B8A` | `#9094B0` | decorative and duplicated text: eyebrows, rail labels, timestamps, inactive nav |
 | `--hairline` | `rgba(255,255,255,.08)` | `rgba(27,29,46,.14)` | standard border |
 | `--hairline-soft` | `rgba(255,255,255,.05)` | `rgba(27,29,46,.07)` | quiet divider |
 
 Brightness carries hierarchy. Dense navigation uses the ink ramp, going from `ink-low` up to
 `ink-hi`, rather than colour.
+
+`ink-low` sits at 3.5:1 on `panel` (2.8:1 on the light theme), under the 4.5:1 text floor, and
+that is deliberate: it is the whisper step. The restriction that buys is strict. `ink-low` carries
+only decorative or duplicated text: eyebrows, rail labels, timestamps, hints whose meaning is
+repeated beside them in `ink-mid` or `ink-hi`, and inactive nav items whose hover, focus and
+current states carry the wayfinding. It is never the sole carrier of essential copy. Anything
+someone must be able to read takes `ink-mid` (8.3:1) or above.
 
 ### Glass
 
@@ -201,6 +208,9 @@ over a flat background. `.dots` is a masked dot grid used only in the hero of th
 
 Choices are kept in `localStorage` under `proxima-theme`, `proxima-accent` and `proxima-bg`, and
 every page applies them in a small script in the head before first paint, so there is no flash.
+When no theme is stored, `prefers-color-scheme` decides the first paint; a stored choice wins from
+then on. `prefers-reduced-motion` forces the flat background regardless of the stored `proxima-bg`:
+the bloom layers and the grain are not painted at all, and nothing drifts.
 
 ---
 
@@ -365,12 +375,17 @@ with no bar to host the button, pinned top left so it never meets the `.fab` bot
 
 ## Accessibility
 
-Focus is always visible through a global `:focus-visible` outline in the accent colour. Interactive
-components carry their ARIA state: `aria-expanded` on expandable rows, `role="switch"` with
+Focus is always visible through a global `:focus-visible` outline in the accent colour, and a
+capsule input whose inner field drops its outline shows focus as the accent border on the capsule
+itself (`:focus-within`). Interactive components carry their ARIA state: `aria-expanded` with
+`aria-controls` on expandable rows, whose triggers are real buttons, `role="switch"` with
 `aria-checked` on toggles, `role="img"` and a description on charts, `aria-hidden` on decorative
-canvases. Colour never carries meaning by itself, so every state colour comes with a word, an icon or
-a dot. Motion sits behind `prefers-reduced-motion`. Chart colours are contrast checked on both
-themes.
+canvases, `aria-disabled` on stub links. The docs swatches are keyboard operable: focus one and
+Enter or Space copies its variable name. Colour never carries meaning by itself, so every state
+colour comes with a word, an icon or a dot, and `ink-low`, which sits under 4.5:1, is restricted to
+decorative and duplicated text. Motion sits behind `prefers-reduced-motion`, which also forces the
+flat background whatever is stored. The first paint follows `prefers-color-scheme` until a theme is
+chosen. Every check and its measured result is in the audit table on the docs page, WARNs included.
 
 ---
 

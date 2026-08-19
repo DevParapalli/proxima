@@ -32,7 +32,11 @@
   var themeFixed = root.getAttribute('data-proxima-theme') === 'fixed-dark';
 
   function isLight() { return root.classList.contains('theme-light'); }
-  function isFlat() { return root.classList.contains('bg-flat'); }
+  /* reduced motion forces the flat background in the stylesheet, so the
+     bloom layers are hidden and painting them would be pure waste */
+  var mqStill = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+  function isStill() { return !!(mqStill && mqStill.matches); }
+  function isFlat() { return root.classList.contains('bg-flat') || isStill(); }
   /* a painter that throws must not be able to take the rest of the file with
      it, or window.Proxima below never gets its charts drawn */
   function repaint() {
@@ -115,6 +119,7 @@
       lime:   [['rgba(157,187,46,A)', .38], ['rgba(47,169,124,A)', .24], ['rgba(87,87,217,A)', .14], ['rgba(26,32,10,A)', .9]]
     };
     painters.push(function (light, accent) {
+      if (isStill()) return;                    /* hidden under reduced motion */
       var d = sizeCanvas(hero, heroCtx, 900, 1);
       if (!d) return;
       var W = d[0], H = d[1], long = Math.max(W, H);
@@ -366,11 +371,15 @@
     var d = document.getElementById('ac-' + a);
     if (d) d.addEventListener('click', function () { setAccent(a); });
   });
-  /* restore persisted display options */
+  /* restore persisted display options. With no stored theme the OS decides
+     through prefers-color-scheme; a stored choice wins from then on. The
+     head script on every page applies the same rule before first paint. */
   var startLight = false, startAccent = 'indigo', startFlat = false;
   try {
     startFlat = localStorage.getItem('proxima-bg') === 'flat';
-    startLight = localStorage.getItem('proxima-theme') === 'light';
+    var storedTheme = localStorage.getItem('proxima-theme');
+    startLight = storedTheme ? storedTheme === 'light'
+      : !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
     startAccent = localStorage.getItem('proxima-accent') || 'indigo';
   } catch (e) {}
   if (startFlat) setBg(true, false);
@@ -415,11 +424,20 @@
     var val = sw.dataset.var || sw.dataset.hex;
     if (!val) return;
     sw.setAttribute('title', 'Click to copy ' + val);
-    sw.addEventListener('click', function () {
+    /* the swatch is a div in the markup, so give it the button semantics its
+       click handler implies and keep it operable from the keyboard */
+    sw.setAttribute('role', 'button');
+    sw.setAttribute('tabindex', '0');
+    sw.setAttribute('aria-label', 'Copy ' + val);
+    function copy() {
       if (navigator.clipboard) navigator.clipboard.writeText(val);
       var m = sw.querySelector('.meta code'); if (!m) return;
       var old = m.textContent;
       m.textContent = 'copied!'; setTimeout(function () { m.textContent = old; }, 900);
+    }
+    sw.addEventListener('click', copy);
+    sw.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); copy(); }
     });
   });
 

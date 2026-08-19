@@ -57,6 +57,7 @@ SURFACES   --void #0A0B12 background · --panel #12141F · --panel-2 #181B2A
            --glass-1 .03 blur8 · --glass-2 .055 blur18 · --glass-3 .72 blur26 plus shadow
            --hairline rgba(255,255,255,.08) · --hairline-soft .05 · --well for inset areas
 TEXT       --ink-hi #EFF0F8 · --ink-mid #A9ADC7 · --ink-low #666B8A   brightness is hierarchy
+           ink-low sits under 4.5:1 by design: decorative and duplicated text only
 ACCENT     --accent #8D8DF5 · --accent-deep #5757D9 · --accent-ink for text on accent · --accent-glow
 STATE      --mint, --amber, --rose, --sky, each with -fill and -line
 CHARTS     --ch-1 to --ch-5 · --ch-neutral for comparison · --gridline · --crosshair
