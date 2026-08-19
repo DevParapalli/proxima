@@ -13,8 +13,11 @@
      .sw             swatch click-to-copy (copies the custom property name)
      .snippet        copy button on copyable markup blocks
 
+     [data-modal-open]     modal triggers (drawer focus machinery, shared scrim)
+
    Manual API:
      Proxima.spark(svgEl, opts)   area chart + dotted forecast (+ tooltip)
+     Proxima.toast(word, status, detail)   single bottom toast, auto-dismiss
      Proxima.onRepaint(fn)        register accent/theme repaint hook
 
    Pages that must stay dark (marketing) declare:
@@ -61,6 +64,7 @@
      there can never leave pages without Proxima.spark. */
   window.Proxima = {
     spark: spark,
+    toast: toast,
     onRepaint: function (fn) { painters.push(fn); fn(isLight(), accentNow); },
     setTheme: setTheme, setAccent: setAccent, setBg: setBg
   };
@@ -197,6 +201,21 @@
     else document.body.appendChild(s);
     return s;
   }
+  /* one focus trap, shared by the drawers and the modal. `ring` returns the
+     tab loop in loop order (which need not be DOM order: the drawer keeps its
+     toggle in the loop even though it lives elsewhere in the page), so every
+     Tab is intercepted and moved within the ring. Escape calls `close`. */
+  function makeTrap(ring, close) {
+    return function (ev) {
+      if (ev.key === 'Escape') { close(); return; }
+      if (ev.key !== 'Tab') return;
+      var items = ring();
+      if (!items.length) return;
+      ev.preventDefault();
+      var i = items.indexOf(document.activeElement), n = items.length;
+      items[i < 0 ? (ev.shiftKey ? n - 1 : 0) : (i + (ev.shiftKey ? n - 1 : 1)) % n].focus();
+    };
+  }
   function wireNavToggle(btn) {
     var panel = document.querySelector(btn.getAttribute('data-nav-toggle') || '');
     if (!panel) return;
@@ -204,19 +223,9 @@
     var isOpen = false;
     var scrim = makeScrim(panel);
 
-    /* no focus-trap utility exists in this file, so keep a small local one:
-       the toggle stays in the loop, which is what makes the drawer dismissable
-       by keyboard alone. */
-    function onKey(ev) {
-      if (ev.key === 'Escape') { setOpen(false); btn.focus(); return; }
-      if (ev.key !== 'Tab') return;
-      var items = panel.querySelectorAll(FOCUSABLE);
-      if (!items.length) return;
-      var first = items[0], last = items[items.length - 1], act = document.activeElement;
-      if (act === btn) { ev.preventDefault(); (ev.shiftKey ? last : first).focus(); }
-      else if (ev.shiftKey && act === first) { ev.preventDefault(); btn.focus(); }
-      else if (!ev.shiftKey && act === last) { ev.preventDefault(); btn.focus(); }
-    }
+    var onKey = makeTrap(function () {
+      return [btn].concat(Array.prototype.slice.call(panel.querySelectorAll(FOCUSABLE)));
+    }, function () { setOpen(false); btn.focus(); });
     function setOpen(next) {
       if (next === isOpen) return;
       isOpen = next;
@@ -249,6 +258,66 @@
     else if (mq.addListener) mq.addListener(onMq);
   }
   document.querySelectorAll('[data-nav-toggle]').forEach(wireNavToggle);
+
+  /* ---------- modal ----------
+     Markup contract:  <button data-modal-open="#modal-id">…</button>
+                       <div class="modal" id="modal-id" role="dialog" aria-modal="true">
+                         <div class="modal-card">… <button data-modal-close>…</button></div>
+                       </div>
+     Reuses the drawer's scrim and focus machinery: focus is trapped in the
+     card, Escape and the scrim close, focus returns to the opener. */
+  function wireModalTrigger(btn) {
+    var modal = document.querySelector(btn.getAttribute('data-modal-open') || '');
+    if (!modal) return;
+    var scrim = modal._pxScrim || (modal._pxScrim = makeScrim(modal));
+    var isOpen = false;
+    var onKey = makeTrap(function () {
+      return Array.prototype.slice.call(modal.querySelectorAll(FOCUSABLE));
+    }, function () { setOpen(false); });
+    function setOpen(next) {
+      if (next === isOpen) return;
+      isOpen = next;
+      modal.classList.toggle('open', isOpen);
+      scrim.classList.toggle('on', isOpen);
+      root.classList.toggle('nav-open', isOpen);   /* same scroll lock the drawer takes */
+      if (isOpen) {
+        document.addEventListener('keydown', onKey);
+        var first = modal.querySelector(FOCUSABLE);
+        if (first) first.focus();
+      } else {
+        document.removeEventListener('keydown', onKey);
+        btn.focus();
+      }
+    }
+    btn.addEventListener('click', function () { setOpen(true); });
+    scrim.addEventListener('click', function () { setOpen(false); });
+    modal.addEventListener('click', function (ev) {
+      if (ev.target && ev.target.closest && ev.target.closest('[data-modal-close]')) setOpen(false);
+    });
+  }
+  document.querySelectorAll('[data-modal-open]').forEach(wireModalTrigger);
+
+  /* ---------- toast ----------
+     Proxima.toast(word, status, detail): a single element, bottom centre,
+     the status colour plus the word, gone by itself after four seconds. */
+  var toastEl = null, toastTimer = 0;
+  var TOAST_STATUSES = ['mint', 'amber', 'rose', 'sky'];
+  function toast(word, status, detail) {
+    if (!toastEl) {
+      toastEl = document.createElement('div');
+      toastEl.setAttribute('role', 'status');
+      document.body.appendChild(toastEl);
+    }
+    toastEl.className = 'toast' + (TOAST_STATUSES.indexOf(status) >= 0 ? ' ' + status : '');
+    while (toastEl.firstChild) toastEl.removeChild(toastEl.firstChild);
+    var dot = document.createElement('i'); dot.className = 'dot'; dot.setAttribute('aria-hidden', 'true');
+    var b = document.createElement('b'); b.textContent = word;
+    toastEl.appendChild(dot); toastEl.appendChild(b);
+    if (detail) { var s = document.createElement('span'); s.textContent = detail; toastEl.appendChild(s); }
+    requestAnimationFrame(function () { toastEl.classList.add('on'); });
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.classList.remove('on'); }, 4000);
+  }
 
   /* ---------- display options FAB ---------- */
   var fab = document.getElementById('fab'), fabBtn = document.getElementById('fab-toggle');

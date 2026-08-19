@@ -16,6 +16,7 @@ A dark-first UI system for a homelab console, built around tinted neutrals, a si
   - `article.html`
   - `settings.html`
   - `login.html`
+  - `404.html`
 - documentation files:
   - `DESIGN-SYSTEM.md` — system overview, tokens, and principles
   - `PROXIMA.md` — portable kit guidance and usage notes

@@ -16,6 +16,7 @@
      09  Forms (fields, selects, checks, setting rows, danger zone)
      10  Status (pills, fact chips, deltas, callouts, live dot)
      11  Data display (KPI, tables, board, charts, feed)
+     11b Feedback (empty state, skeletons, modal, toast, tooltip)
      12  Navigation & shells (docs rail, app shell, marketing nav, FAB)
      13  Marketing sections (hero, embed, fog, features, proof, cta)
      14  Article / prose
@@ -437,6 +438,50 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); width
 .fitem p { color: var(--ink-mid); min-width: 0; }
 .fitem p b { color: var(--ink-hi); font-weight: 520; }
 
+/* -- 11b · feedback -------------------------------------------- */
+/* empty state: a panel with one sentence and one action */
+.empty { border: 1px solid var(--hairline); border-radius: var(--r-l); background: var(--glass-1); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); padding: 38px 24px; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; }
+.empty b { font-size: 14.5px; font-weight: 530; color: var(--ink-hi); }
+.empty p { font-size: 13px; color: var(--ink-low); max-width: 46ch; }
+.empty .btn { margin-top: 14px; }
+/* skeletons: shaped like the thing they are waiting for */
+.skel { display: block; width: 100%; height: 12px; border-radius: var(--r-full); background: var(--glass-2); position: relative; overflow: hidden; }
+.xrow-skel { display: grid; grid-template-columns: 80px minmax(0, 1fr) 130px; align-items: center; gap: 14px; padding: 17px 18px; border-bottom: 1px solid var(--hairline-soft); }
+.xrow-skel:last-child { border-bottom: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .skel::after { content: ''; position: absolute; inset: 0; transform: translateX(-100%); background: linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent); animation: proxima-shimmer 1.6s ease-in-out infinite; }
+  @keyframes proxima-shimmer { to { transform: translateX(100%); } }
+  .kpi-pulse { animation: proxima-pulse 1.8s ease-in-out infinite; }
+  @keyframes proxima-pulse { 50% { opacity: .55; } }
+}
+/* modal: glass-3, the one surface that interrupts. proxima.js reuses the
+   drawer's scrim and focus machinery for it, see [data-modal-open]. The
+   container ignores pointer events so backdrop clicks land on the scrim. */
+.modal { position: fixed; inset: 0; z-index: 9; display: grid; place-items: center; padding: 20px; visibility: hidden; pointer-events: none; }
+.modal.open { visibility: visible; }
+.modal .modal-card { width: min(440px, 100%); border: 1px solid var(--hairline); border-radius: var(--r-xl); background: var(--glass-3); -webkit-backdrop-filter: blur(26px); backdrop-filter: blur(26px); box-shadow: inset 0 1px 0 rgba(255,255,255,.09), 0 18px 48px rgba(0,0,0,.42); padding: 24px; opacity: 0; transform: translateY(10px); }
+.modal.open .modal-card { opacity: 1; transform: none; pointer-events: auto; }
+.modal h3 { font-size: 16px; font-weight: 540; color: var(--ink-hi); }
+.modal p { font-size: 13.5px; color: var(--ink-mid); margin-top: 8px; }
+.modal .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+@media (prefers-reduced-motion: no-preference) { .modal .modal-card { transition: opacity .2s, transform .2s cubic-bezier(.2,.7,.3,1); } }
+/* toast: one at a time, bottom centre, a status colour and a word.
+   Created and dismissed by Proxima.toast(word, status, detail). */
+.toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 160%); z-index: 9; display: flex; align-items: center; gap: 9px; padding: 9px 18px; border-radius: var(--r-full); border: 1px solid var(--hairline); background: var(--glass-3); -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px); box-shadow: 0 14px 40px rgba(0,0,0,.35); font-size: 13px; color: var(--ink-mid); opacity: 0; pointer-events: none; white-space: nowrap; }
+.toast.on { transform: translate(-50%, 0); opacity: 1; }
+.toast .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ink-low); flex: none; }
+.toast b { font-weight: 550; letter-spacing: .02em; color: var(--ink-hi); }
+.toast.mint .dot { background: var(--mint); } .toast.mint b { color: var(--mint); }
+.toast.amber .dot { background: var(--amber); } .toast.amber b { color: var(--amber); }
+.toast.rose .dot { background: var(--rose); } .toast.rose b { color: var(--rose); }
+.toast.sky .dot { background: var(--sky); } .toast.sky b { color: var(--sky); }
+@media (prefers-reduced-motion: no-preference) { .toast { transition: transform .25s cubic-bezier(.2,.7,.3,1), opacity .2s; } }
+/* tooltip: a fact in mono, after a beat, from the keyboard too.
+   Markup contract: any focusable element with data-tip="the fact". */
+[data-tip] { position: relative; }
+[data-tip]::after { content: attr(data-tip); position: absolute; left: 50%; bottom: calc(100% + 8px); transform: translateX(-50%); z-index: 6; white-space: nowrap; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .02em; color: var(--ink-hi); background: var(--glass-3); border: 1px solid var(--hairline); border-radius: 7px; padding: 4px 9px; -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .15s, visibility 0s linear .15s; }
+[data-tip]:hover::after, [data-tip]:focus-visible::after { opacity: 1; visibility: visible; transition: opacity .15s .35s, visibility 0s linear .35s; }
+
 /* -- 12 · navigation & shells --------------------------------- */
 /* docs rail (brightness = hierarchy) */
 .frame { position: relative; z-index: 2; display: grid; grid-template-columns: 232px minmax(0,1fr); gap: 40px; max-width: 1200px; margin: 0 auto; padding: 28px 32px 120px; }
@@ -710,7 +755,8 @@ footer.foot .fine { width: 100%; font-size: 11.5px; color: var(--ink-low); borde
 
 /* light-theme component adjustments */
 html.theme-light .elev-stage { background: radial-gradient(600px 320px at 20% 10%, rgba(87,87,217,.2), transparent 60%), radial-gradient(520px 300px at 85% 90%, rgba(141,92,240,.15), transparent 65%), var(--panel); }
-html.theme-light .e3, html.theme-light .auth-card { box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 18px 48px rgba(27,29,46,.16); }
+html.theme-light .e3, html.theme-light .auth-card, html.theme-light .modal .modal-card { box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 18px 48px rgba(27,29,46,.16); }
+html.theme-light .toast { box-shadow: 0 14px 40px rgba(27,29,46,.2); }
 html.theme-light .btn-glass:hover { background: rgba(255,255,255,.95); }
 html.theme-light .kpi-aurora::before { opacity: .55; }
 html.theme-light .seg button.on { box-shadow: none; }

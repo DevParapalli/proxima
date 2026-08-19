@@ -2,7 +2,7 @@
 
 The design system behind my homelab console. It is dark first, built on tinted neutrals with one
 accent colour, and it is meant for looking at machines at night. One stylesheet, one behaviour file,
-fonts served locally, and seven sample pages that all tell the same story.
+fonts served locally, and eight sample pages that all tell the same story.
 
 Built by Devansh Parapalli, for my own projects. The source lives at
 [github.com/DevParapalli/design-system](https://github.com/DevParapalli/design-system) and all of
@@ -33,6 +33,7 @@ design-system/
 ├── article.html             long form reading
 ├── settings.html            forms, save bar, margin nav
 ├── login.html               sign in
+├── 404.html                 not found, the auth register at its smallest
 ├── DESIGN-SYSTEM.md         this file
 ├── tokens.json              the same tokens in W3C format
 └── PROXIMA.md               the portable kit
@@ -284,6 +285,21 @@ surfaces means working out which one owns your edit.
 - `.delta` with `.up` or `.down` for the change under a number.
 - `.callout` with optional `-sky` or `-rose` is the note inside an opened row.
 - `.live` is the glowing dot plus mono timestamp used in top bars.
+
+### Feedback
+
+- `.empty` is the panel for a set with nothing in it: one sentence and one action, centred.
+- `.skel` is a skeleton bar and `.xrow-skel` a skeleton table row, shaped like the rows they stand
+  in for. `.kpi-pulse` is the KPI variant that breathes until its number arrives. Both stop moving
+  under `prefers-reduced-motion`.
+- The modal sits on `glass-3`, the one surface that interrupts. `data-modal-open="#id"` on a button
+  wires it; it reuses the drawer's focus machinery and scrim, so focus is trapped in the card,
+  Escape closes, and focus returns to the opener. `data-modal-close` marks the buttons that
+  dismiss it. One modal at a time.
+- `Proxima.toast(word, status, detail)` shows the single toast: bottom centre, the status colour
+  plus the word, gone by itself after four seconds. If it must be acted on, it is not a toast.
+- `[data-tip="the fact"]` on a focusable element is the tooltip: one mono fact, a short delay,
+  shown on hover and on keyboard focus alike. Never an instruction, never a control.
 
 ### Data
 

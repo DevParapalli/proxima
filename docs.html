@@ -32,6 +32,8 @@
     <a href="#table">Tables</a>
     <a href="#board">Boards</a>
     <a href="#charts">Charts</a>
+    <a href="#states">States</a>
+    <a href="#overlays">Overlays</a>
     <a href="#responsive">Responsive</a>
     <span class="rail-label">Pages</span>
     <a href="dashboard.html">Overview →</a>
@@ -40,6 +42,7 @@
     <a href="article.html">Notes →</a>
     <a href="settings.html">Settings →</a>
     <a href="login.html">Sign in →</a>
+    <a href="404.html">Not found →</a>
     <div class="foot">v1.0 · built for one person</div>
   </nav>
 
@@ -540,6 +543,78 @@
       <div class="rule-note">rule: one axis, always. Two measures on different scales become two charts, never one chart with two axes.</div>
     </section>
 
+    <section id="states">
+      <header>
+        <div class="eyebrow">( STATES )</div>
+        <h2>Empty and loading</h2>
+        <p>A panel with nothing in it says one sentence and offers one action. A panel still fetching shows the bones of what will arrive: skeleton rows shaped like the rows they stand in for, and a KPI that breathes until its number lands.</p>
+      </header>
+      <div class="grid g2">
+        <div class="stack">
+          <div class="empty">
+            <b>No alert rules yet.</b>
+            <p>When a rule fires you will see it here, with the note you wrote for yourself.</p>
+            <button class="btn btn-glass" type="button">New alert rule</button>
+          </div>
+          <div class="kpi kpi-pulse" aria-busy="true" aria-label="Loading">
+            <div class="k-label"><span class="skel" style="width:82px;height:10px"></span></div>
+            <div class="k-val"><span class="skel" style="width:58%;height:26px;border-radius:var(--r-s)"></span></div>
+            <div class="k-foot"><span class="skel" style="width:130px"></span></div>
+          </div>
+        </div>
+        <div class="xtable" aria-busy="true" aria-label="Services, loading">
+          <header><h3>Services</h3><span class="sum">still fetching…</span></header>
+          <div class="xrow-skel"><span class="skel" style="width:64px"></span><span class="skel" style="width:72%"></span><span class="skel"></span></div>
+          <div class="xrow-skel"><span class="skel" style="width:78px"></span><span class="skel" style="width:56%"></span><span class="skel"></span></div>
+          <div class="xrow-skel"><span class="skel" style="width:52px"></span><span class="skel" style="width:64%"></span><span class="skel"></span></div>
+        </div>
+      </div>
+      <div class="snippet"><button class="btn btn-glass btn-sm" type="button" data-copy>Copy</button><pre>&lt;div class="empty"&gt;
+  &lt;b&gt;No alert rules yet.&lt;/b&gt;
+  &lt;p&gt;When a rule fires you will see it here, with the note you wrote for yourself.&lt;/p&gt;
+  &lt;button class="btn btn-glass" type="button"&gt;New alert rule&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="xrow-skel"&gt;&lt;span class="skel" style="width:64px"&gt;&lt;/span&gt;&lt;span class="skel" style="width:72%"&gt;&lt;/span&gt;&lt;span class="skel"&gt;&lt;/span&gt;&lt;/div&gt;
+
+&lt;div class="kpi kpi-pulse" aria-busy="true" aria-label="Loading"&gt;
+  &lt;div class="k-label"&gt;&lt;span class="skel" style="width:82px;height:10px"&gt;&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="k-val"&gt;&lt;span class="skel" style="width:58%;height:26px;border-radius:var(--r-s)"&gt;&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="k-foot"&gt;&lt;span class="skel" style="width:130px"&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;</pre></div>
+      <div class="rule-note">rule: an empty panel earns one sentence and one action, and a skeleton is shaped like the thing it is waiting for. Both stop moving under prefers-reduced-motion.</div>
+    </section>
+
+    <section id="overlays">
+      <header>
+        <div class="eyebrow">( OVERLAYS )</div>
+        <h2>Modal, toast, tooltip</h2>
+        <p>The modal is the one surface that interrupts, so it sits on glass-3 and reuses the drawer's machinery: shared scrim, focus trapped in the card, Escape to close and return focus. The toast is a single capsule at the bottom that names its status and leaves by itself. The tooltip holds one mono fact, waits a beat, and opens from the keyboard too.</p>
+      </header>
+      <div class="demo-row">
+        <button class="btn btn-glass" type="button" data-modal-open="#demo-modal">Open the modal</button>
+        <button class="btn btn-glass" type="button" id="toast-mint">Toast: saved</button>
+        <button class="btn btn-glass" type="button" id="toast-rose">Toast: failed</button>
+        <button class="btn btn-glass" type="button" data-tip="jupiter · workstation · up 42d">Hover or focus me</button>
+      </div>
+      <div class="snippet"><button class="btn btn-glass btn-sm" type="button" data-copy>Copy</button><pre>&lt;button class="btn btn-glass" type="button" data-modal-open="#confirm"&gt;Restart&lt;/button&gt;
+&lt;div class="modal" id="confirm" role="dialog" aria-modal="true" aria-labelledby="confirm-t"&gt;
+  &lt;div class="modal-card"&gt;
+    &lt;h3 id="confirm-t"&gt;Restart immich?&lt;/h3&gt;
+    &lt;p&gt;It was killed for using too much memory.&lt;/p&gt;
+    &lt;div class="modal-actions"&gt;
+      &lt;button class="btn btn-ghost" type="button" data-modal-close&gt;Cancel&lt;/button&gt;
+      &lt;button class="btn btn-primary" type="button" data-modal-close&gt;Restart&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+Proxima.toast('Saved', 'mint', 'alert rule updated');
+
+&lt;button class="btn btn-glass" type="button" data-tip="jupiter · up 42d"&gt;Hover or focus me&lt;/button&gt;</pre></div>
+      <div class="rule-note">rule: one modal at a time, on glass-3, for a decision that cannot wait. One toast at a time, status colour plus a word, gone by itself: if it must be acted on, it is not a toast. A tooltip holds a fact, never a control.</div>
+    </section>
+
     <section id="responsive">
       <header>
         <div class="eyebrow">( RESPONSIVE )</div>
@@ -588,6 +663,17 @@
   </main>
 </div>
 
+<div class="modal" id="demo-modal" role="dialog" aria-modal="true" aria-labelledby="demo-modal-t">
+  <div class="modal-card">
+    <h3 id="demo-modal-t">Restart immich?</h3>
+    <p>It was killed for using too much memory. Restarting without raising the limit usually buys about an hour.</p>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" type="button" data-modal-close>Cancel</button>
+      <button class="btn btn-primary" type="button" data-modal-close>Restart</button>
+    </div>
+  </div>
+</div>
+
 <footer class="pagefoot"><div class="inner"><span>Proxima design foundation · v1.0 · dark first, light capable</span><span>chart colours checked on both surfaces</span></div></footer>
 
 <div class="fab" id="fab">
@@ -621,6 +707,8 @@ window.addEventListener('DOMContentLoaded', function () {
     tooltip: document.getElementById('tt-spark'),
     unit: 'k req'
   });
+  document.getElementById('toast-mint').addEventListener('click', function () { Proxima.toast('Saved', 'mint', 'alert rule updated'); });
+  document.getElementById('toast-rose').addEventListener('click', function () { Proxima.toast('Failed', 'rose', 'immich did not restart'); });
 });
 </script>
 </body>

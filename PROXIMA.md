@@ -97,6 +97,34 @@ swatch there copies its custom property name.
 <div class="callout"><span>!</span><span><b>Heads up.</b> <span>Detail goes here.</span></span></div>
 ```
 
+**Empty, loading, told**
+
+```html
+<div class="empty">
+  <b>No alert rules yet.</b>
+  <p>When a rule fires you will see it here.</p>
+  <button class="btn btn-glass">New alert rule</button>
+</div>
+
+<div class="xrow-skel"><span class="skel" style="width:64px"></span><span class="skel" style="width:72%"></span><span class="skel"></span></div>
+<!-- .kpi-pulse on a .kpi with .skel bars inside is the loading KPI -->
+
+<button class="btn btn-glass" data-modal-open="#confirm">Restart</button>
+<div class="modal" id="confirm" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <h3>Restart immich?</h3>
+    <div class="modal-actions"><button class="btn btn-ghost" data-modal-close>Cancel</button><button class="btn btn-primary" data-modal-close>Restart</button></div>
+  </div>
+</div>
+<!-- proxima.js traps focus in the card, Escape closes, the scrim is shared with the drawer -->
+
+<button class="btn btn-glass" data-tip="jupiter · up 42d">Host</button>   <!-- tooltip: one mono fact -->
+```
+
+```js
+Proxima.toast('Saved', 'mint', 'alert rule updated');   // single bottom toast, auto-dismiss
+```
+
 **A number**
 
 ```html
