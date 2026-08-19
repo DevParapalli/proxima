@@ -8,6 +8,9 @@ Built by Devansh Parapalli, for my own projects. The source lives at
 [github.com/DevParapalli/design-system](https://github.com/DevParapalli/design-system) and all of
 it is MIT licensed, see [`LICENSE`](LICENSE).
 
+Two versions appear across these pages: v1.0 is this design system, and the v0.9.2 in the console
+is Proxima itself, the fictional product the system demonstrates.
+
 Machine readable tokens are in [`tokens.json`](tokens.json).
 The portable version for restyling other repos is [`PROXIMA.md`](PROXIMA.md).
 
@@ -331,6 +334,9 @@ surfaces means working out which one owns your edit.
   presses, drags and releases. `.bars` with `.brow` draws comparison bars, with `.lead` marking
   the subject. `.meter` is the segmented capsule meter. `.donut` is a plain SVG donut. Use one axis
   always. Two measures on different scales become two charts.
+- Every scripted spark chart ships a `<text>` fallback inside its SVG, the headline number and
+  range in mono, which the first draw replaces. A page without JavaScript shows the number instead
+  of an empty box.
 - Colour on an SVG mark goes through `style="stroke: var(--ch-1)"`, never a `stroke="var(--ch-1)"`
   presentation attribute. WebKit does not substitute custom properties in presentation attributes, so
   the attribute form silently paints nothing there.
