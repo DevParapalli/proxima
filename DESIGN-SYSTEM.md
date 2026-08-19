@@ -4,7 +4,9 @@ The design system behind my homelab console. It is dark first, built on tinted n
 accent colour, and it is meant for looking at machines at night. One stylesheet, one behaviour file,
 fonts served locally, and seven sample pages that all tell the same story.
 
-Built by Devansh Parapalli, for my own projects.
+Built by Devansh Parapalli, for my own projects. The source lives at
+[github.com/DevParapalli/design-system](https://github.com/DevParapalli/design-system) and all of
+it is MIT licensed, see [`LICENSE`](LICENSE).
 
 Machine readable tokens are in [`tokens.json`](tokens.json).
 The portable version for restyling other repos is [`PROXIMA.md`](PROXIMA.md).
@@ -316,6 +318,11 @@ surfaces means working out which one owns your edit.
   and `.settings-cols`. It is scroll spied and hides below 1140px. It exists so a wide screen carries
   something useful instead of empty space.
 - `nav.top` is the marketing nav. `.fab` is the floating theme panel.
+
+Proxima is a fictional product, so some nav destinations are named without being built. A link
+like that loses its `href`, which takes it out of the tab order, and carries
+`aria-disabled="true"`, which the stylesheet mutes. Nothing on these pages looks clickable but
+goes nowhere.
 
 Below the breakpoint where a nav stops fitting, it goes off canvas rather than away. `.side` and
 `.rail` become fixed drawers that slide in from the left, and `nav.top .links` becomes a dropdown

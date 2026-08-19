@@ -80,4 +80,5 @@ no top bar to host the button.
 
 ## License
 
-This project is licensed under the terms described in `LICENSE`.
+This project is licensed under the MIT License — see [`LICENSE`](LICENSE). Source:
+[github.com/DevParapalli/design-system](https://github.com/DevParapalli/design-system).

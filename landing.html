@@ -32,8 +32,8 @@
     <h1>One page for every machine <em class="si">you run.</em></h1>
     <p class="sub">I built Proxima to watch my own hosts and the services on them. It stays quiet when things are fine and it is loud exactly once, when something breaks.</p>
     <form class="cta-combo" onsubmit="return false">
-      <input type="email" placeholder="Email for release notes" aria-label="Email for release notes">
-      <button class="btn btn-primary" type="submit">Keep me posted</button>
+      <input type="email" placeholder="Email for release notes" aria-label="Email for release notes" disabled>
+      <button class="btn btn-primary" type="submit" disabled aria-disabled="true">Keep me posted</button>
     </form>
     <p class="fine">One binary and a config file. <b>No agent on every box.</b></p>
 
@@ -102,9 +102,9 @@
       <h2>However you like</h2>
     </div>
     <div class="pgrid">
-      <div class="tcard"><canvas width="400" height="220" aria-hidden="true"></canvas><div class="body"><span class="tag">BINARY</span><h3>Drop it on a box</h3><p>One static binary and a YAML file. Point it at your hosts over SSH and it starts reporting.</p><a href="#">Download →</a></div></div>
-      <div class="tcard"><canvas width="400" height="220" aria-hidden="true"></canvas><div class="body"><span class="tag">DOCKER</span><h3>Or a container</h3><p>A single image, roughly 40 MB. Mount the config, expose one port, done.</p><a href="#">See the compose file →</a></div></div>
-      <div class="tcard"><canvas width="400" height="220" aria-hidden="true"></canvas><div class="body"><span class="tag">SOURCE</span><h3>Read it first</h3><p>The whole thing is small enough to read in an afternoon, which was one of the goals.</p><a href="#">Browse the source →</a></div></div>
+      <div class="tcard"><canvas width="400" height="220" aria-hidden="true"></canvas><div class="body"><span class="tag">BINARY</span><h3>Drop it on a box</h3><p>One static binary and a YAML file. Point it at your hosts over SSH and it starts reporting.</p><a aria-disabled="true">Download →</a></div></div>
+      <div class="tcard"><canvas width="400" height="220" aria-hidden="true"></canvas><div class="body"><span class="tag">DOCKER</span><h3>Or a container</h3><p>A single image, roughly 40 MB. Mount the config, expose one port, done.</p><a aria-disabled="true">See the compose file →</a></div></div>
+      <div class="tcard"><canvas width="400" height="220" aria-hidden="true"></canvas><div class="body"><span class="tag">SOURCE</span><h3>Read it first</h3><p>The whole thing is small enough to read in an afternoon, which was one of the goals.</p><a href="https://github.com/DevParapalli/design-system">Browse the source →</a></div></div>
       <div class="tcard"><canvas width="400" height="220" aria-hidden="true"></canvas><div class="body"><span class="tag">DESIGN</span><h3>Take the interface</h3><p>The design system behind this site is documented and free to reuse in your own projects.</p><a href="docs.html">Open the docs →</a></div></div>
     </div>
   </section>
@@ -123,10 +123,10 @@
     <a class="logo" href="index.html"><span class="orb" aria-hidden="true"></span>Proxima</a>
     <div class="cols">
       <div class="col"><h5>Project</h5><a href="#what">What it does</a><a href="#weight">Weight</a><a href="#run">Running it</a></div>
-      <div class="col"><h5>Reading</h5><a href="article.html">Notes</a><a href="docs.html">Design system</a><a href="#">Changelog</a></div>
+      <div class="col"><h5>Reading</h5><a href="article.html">Notes</a><a href="docs.html">Design system</a><a aria-disabled="true">Changelog</a></div>
       <div class="col"><h5>Console</h5><a href="dashboard.html">Overview</a><a href="studio.html">Alert studio</a><a href="settings.html">Settings</a></div>
     </div>
-    <div class="fine">Proxima is a personal project by Devansh Parapalli. Set in Outfit, Instrument Serif and IBM Plex Mono.</div>
+    <div class="fine">Proxima is a personal project by Devansh Parapalli. Set in Outfit, Instrument Serif and IBM Plex Mono. The design system is <a href="LICENSE" style="color:var(--ink-mid);text-decoration:none">MIT licensed</a> · <a href="https://github.com/DevParapalli/design-system" style="color:var(--ink-mid);text-decoration:none">source on GitHub</a>.</div>
   </footer>
 </div>
 

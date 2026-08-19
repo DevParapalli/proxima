@@ -519,6 +519,8 @@ html.nav-open { overflow: hidden; }
 /* page footer */
 footer.pagefoot { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 32px 60px; color: var(--ink-low); font-size: 12px; }
 footer.pagefoot .inner { border-top: 1px solid var(--hairline-soft); padding-top: 20px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+footer.pagefoot a { color: var(--ink-mid); text-decoration: none; }
+footer.pagefoot a:hover { color: var(--ink-hi); }
 
 /* -- 13 · marketing sections ---------------------------------- */
 .page { position: relative; z-index: 2; min-height: 100vh; min-height: 100dvh; overflow: hidden; background: var(--void); }
@@ -762,6 +764,20 @@ html.theme-light .savebar { box-shadow: 0 14px 40px rgba(27,29,46,.2); }
 .iconbtn { position: relative; width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--hairline); background: var(--glass-2); color: var(--ink-mid); cursor: pointer; display: grid; place-items: center; }
 .iconbtn:hover { color: var(--ink-hi); }
 .iconbtn .bdot { position: absolute; top: 6px; right: 7px; width: 7px; height: 7px; border-radius: 50%; background: var(--rose); box-shadow: 0 0 6px var(--rose-glow); }
+/* stub links: parts of the fiction that are named but not built. They lose
+   their href, which takes them out of the tab order, and carry
+   aria-disabled="true" so the muting below says the same thing twice. */
+a[aria-disabled="true"],
+.side nav a[aria-disabled="true"]:hover,
+.tcard a[aria-disabled="true"],
+.tcard a[aria-disabled="true"]:hover,
+footer.foot .col a[aria-disabled="true"],
+footer.foot .col a[aria-disabled="true"]:hover,
+.auth-card .row a[aria-disabled="true"],
+.auth-card .row a[aria-disabled="true"]:hover { color: var(--ink-low); text-decoration: none; cursor: default; }
+a[aria-disabled="true"] { opacity: .45; }
+.cta-combo input:disabled { color: var(--ink-low); cursor: not-allowed; }
+
 .u-hide { display: none !important; }
 .u-mt-1 { margin-top: var(--sp-2); } .u-mt-2 { margin-top: var(--sp-4); } .u-mt-3 { margin-top: var(--sp-5); } .u-mt-4 { margin-top: var(--sp-6); }
 .u-flex { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
