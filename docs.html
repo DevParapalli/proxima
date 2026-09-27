@@ -40,69 +40,68 @@
     <a href="article.html">Notes →</a>
     <a href="settings.html">Settings →</a>
     <a href="login.html">Sign in →</a>
-    <div class="foot">v1.0 · built for one person</div>
+    <div class="foot">v0.2.0 · built for one person</div>
   </nav>
 
   <main>
     <div class="docs-hero">
-      <div class="eyebrow">( <b>PROXIMA</b> · DESIGN FOUNDATION )</div>
-      <h1>Dark first, <em>quiet</em> until it matters.</h1>
+      <h1>Dark first, quiet until it matters.</h1>
       <p class="lede">This is the design system behind my homelab console. Dark is the default because that is what I prefer, but the system ships four accents, two themes and two backgrounds, and every combination is a real supported option. Everything below is live. Use the panel in the bottom right to switch, and watch the components and the swatches follow along.</p>
     </div>
 
     <section id="principles">
       <header>
-        <div class="eyebrow">( PRINCIPLES )</div>
+        <div class="index-line"><span class="n">01</span><span class="t">Principles</span></div>
         <h2>Six rules, and one thing that is up to you</h2>
         <p>The rules below hold whichever look you pick. What you pick is your call. Indigo on ink dark is only the default. Teal on flat light is just as valid, and if that suits the thing you are building, use it. Sixteen combinations, all of them checked.</p>
       </header>
       <div class="prin">
-        <div class="card"><span class="eyebrow">01</span><h3>Neutrals come from the ramp</h3><p>Never #000, never #fff, never untinted grey. On dark the ramp leans blue, on light it stays cool. Both feel like a place rather than an inverted settings panel.</p></div>
-        <div class="card"><span class="eyebrow">02</span><h3>One accent, your pick of four</h3><p>Indigo, teal, ember or lime. Choose one at the root and let it own active states, primary buttons and focus rings. The rule is one accent per app, not one accent for everyone.</p></div>
-        <div class="card"><span class="eyebrow">03</span><h3>State twice over</h3><p>Status is a tint you feel and a word you read. Never colour on its own, never a bare label. This is what keeps the palette swappable without losing meaning.</p></div>
-        <div class="card"><span class="eyebrow">04</span><h3>Depth from glass, or not at all</h3><p>Things lift with blur and translucency instead of shadows, and only the top layer gets a real shadow. Flat mode drops the blooms and the system still works.</p></div>
-        <div class="card"><span class="eyebrow">05</span><h3>Hide the detail</h3><p>A row is one line until you open it. Density is something you ask for, not something the page does to you.</p></div>
-        <div class="card"><span class="eyebrow">06</span><h3>Texture, barely</h3><p>Five percent grain, soft colour blooms underneath, both optional. Atmosphere is fine. Noise is not.</p></div>
+        <div class="card"><span class="card-num">01</span><h3>Neutrals come from the ramp</h3><p>Never #000, never #fff, never untinted grey. On dark the ramp leans blue, on light it stays cool. Both feel like a place rather than an inverted settings panel.</p></div>
+        <div class="card"><span class="card-num">02</span><h3>One accent, your pick of four</h3><p>Indigo, teal, ember or lime. Choose one at the root and let it own active states, primary buttons and focus rings. The rule is one accent per app, not one accent for everyone.</p></div>
+        <div class="card"><span class="card-num">03</span><h3>State twice over</h3><p>Status is a tint you feel and a word you read. Never colour on its own, never a bare label. This is what keeps the palette swappable without losing meaning.</p></div>
+        <div class="card"><span class="card-num">04</span><h3>Depth from glass, or not at all</h3><p>Things lift with blur and translucency instead of shadows, and only the top layer gets a real shadow. Flat mode drops the blooms and the system still works.</p></div>
+        <div class="card"><span class="card-num">05</span><h3>Hide the detail</h3><p>A row is one line until you open it. Density is something you ask for, not something the page does to you.</p></div>
+        <div class="card"><span class="card-num">06</span><h3>Texture, barely</h3><p>Five percent grain, soft colour blooms underneath, both optional. Atmosphere is fine. Noise is not.</p></div>
       </div>
       <div class="rule-note">rule: pick a combination, set it once at the root, and stay there. Every rule above survives the switch. Your taste decides which of the sixteen you ship.</div>
     </section>
 
     <section id="color">
       <header>
-        <div class="eyebrow">( COLOUR )</div>
+        <div class="index-line"><span class="n">02</span><span class="t">Colour</span></div>
         <h2>Three families, strict jobs</h2>
         <p>Neutrals carry the interface. One accent carries attention. Semantic colours carry state. The pale versions are for pills and fills. The darker validated versions are for chart marks. They do not swap jobs.</p>
       </header>
       <h3 class="xh" style="margin-bottom:10px">Neutrals</h3>
       <div class="swatches">
-        <div class="sw" data-hex="#0A0B12"><div class="chip" style="background:#0A0B12"></div><div class="meta">void<code>#0A0B12</code></div></div>
-        <div class="sw" data-hex="#12141F"><div class="chip" style="background:#12141F"></div><div class="meta">panel<code>#12141F</code></div></div>
-        <div class="sw" data-hex="#181B2A"><div class="chip" style="background:#181B2A"></div><div class="meta">panel-2<code>#181B2A</code></div></div>
-        <div class="sw" data-hex="#666B8A"><div class="chip" style="background:#666B8A"></div><div class="meta">ink-low<code>#666B8A</code></div></div>
-        <div class="sw" data-hex="#A9ADC7"><div class="chip" style="background:#A9ADC7"></div><div class="meta">ink-mid<code>#A9ADC7</code></div></div>
-        <div class="sw" data-hex="#EFF0F8"><div class="chip" style="background:#EFF0F8"></div><div class="meta">ink-hi<code>#EFF0F8</code></div></div>
+        <div class="sw" data-hex="#0A0B12" data-token="--void"><div class="chip" style="background:var(--void)"></div><div class="meta">void<code>#0A0B12</code></div></div>
+        <div class="sw" data-hex="#12141F" data-token="--panel"><div class="chip" style="background:var(--panel)"></div><div class="meta">panel<code>#12141F</code></div></div>
+        <div class="sw" data-hex="#181B2A" data-token="--panel-2"><div class="chip" style="background:var(--panel-2)"></div><div class="meta">panel-2<code>#181B2A</code></div></div>
+        <div class="sw" data-hex="#666B8A" data-token="--ink-low"><div class="chip" style="background:var(--ink-low)"></div><div class="meta">ink-low<code>#666B8A</code></div></div>
+        <div class="sw" data-hex="#A9ADC7" data-token="--ink-mid"><div class="chip" style="background:var(--ink-mid)"></div><div class="meta">ink-mid<code>#A9ADC7</code></div></div>
+        <div class="sw" data-hex="#EFF0F8" data-token="--ink-hi"><div class="chip" style="background:var(--ink-hi)"></div><div class="meta">ink-hi<code>#EFF0F8</code></div></div>
       </div>
       <h3 class="xh" style="margin:20px 0 10px">Accent and state, pale steps for pills</h3>
       <div class="swatches">
-        <div class="sw" data-hex="#8D8DF5"><div class="chip" style="background:#8D8DF5"></div><div class="meta">accent<code>#8D8DF5</code></div></div>
-        <div class="sw" data-hex="#5757D9"><div class="chip" style="background:#5757D9"></div><div class="meta">accent-deep<code>#5757D9</code></div></div>
-        <div class="sw" data-hex="#5EDBA6"><div class="chip" style="background:#5EDBA6"></div><div class="meta">mint, fine<code>#5EDBA6</code></div></div>
-        <div class="sw" data-hex="#F5C951"><div class="chip" style="background:#F5C951"></div><div class="meta">amber, soon<code>#F5C951</code></div></div>
-        <div class="sw" data-hex="#F8929F"><div class="chip" style="background:#F8929F"></div><div class="meta">rose, broken<code>#F8929F</code></div></div>
-        <div class="sw" data-hex="#6EC6F5"><div class="chip" style="background:#6EC6F5"></div><div class="meta">sky, note<code>#6EC6F5</code></div></div>
+        <div class="sw" data-hex="#8D8DF5" data-token="--accent"><div class="chip" style="background:var(--accent)"></div><div class="meta">accent<code>#8D8DF5</code></div></div>
+        <div class="sw" data-hex="#5757D9" data-token="--accent-deep"><div class="chip" style="background:var(--accent-deep)"></div><div class="meta">accent-deep<code>#5757D9</code></div></div>
+        <div class="sw" data-hex="#5EDBA6" data-token="--mint"><div class="chip" style="background:var(--mint)"></div><div class="meta">mint, fine<code>#5EDBA6</code></div></div>
+        <div class="sw" data-hex="#F5C951" data-token="--amber"><div class="chip" style="background:var(--amber)"></div><div class="meta">amber, soon<code>#F5C951</code></div></div>
+        <div class="sw" data-hex="#F8929F" data-token="--rose"><div class="chip" style="background:var(--rose)"></div><div class="meta">rose, broken<code>#F8929F</code></div></div>
+        <div class="sw" data-hex="#6EC6F5" data-token="--sky"><div class="chip" style="background:var(--sky)"></div><div class="meta">sky, note<code>#6EC6F5</code></div></div>
       </div>
       <h3 class="xh" style="margin:20px 0 10px">Chart marks, checked for contrast</h3>
       <div class="swatches">
-        <div class="sw" data-hex="#6A6AE8"><div class="chip" style="background:#6A6AE8"></div><div class="meta">series-1<code>#6A6AE8</code></div></div>
-        <div class="sw" data-hex="#2FA97C"><div class="chip" style="background:#2FA97C"></div><div class="meta">series-2<code>#2FA97C</code></div></div>
-        <div class="sw" data-hex="#B8831F"><div class="chip" style="background:#B8831F"></div><div class="meta">series-3<code>#B8831F</code></div></div>
-        <div class="sw" data-hex="#D95C6E"><div class="chip" style="background:#D95C6E"></div><div class="meta">series-4<code>#D95C6E</code></div></div>
-        <div class="sw" data-hex="#3E9CD6"><div class="chip" style="background:#3E9CD6"></div><div class="meta">series-5<code>#3E9CD6</code></div></div>
-        <div class="sw" data-hex="#3A3F58"><div class="chip" style="background:#3A3F58"></div><div class="meta">comparison<code>#3A3F58</code></div></div>
+        <div class="sw" data-hex="#6A6AE8" data-token="--ch-1"><div class="chip" style="background:var(--ch-1)"></div><div class="meta">series-1<code>#6A6AE8</code></div></div>
+        <div class="sw" data-hex="#2FA97C" data-token="--ch-2"><div class="chip" style="background:var(--ch-2)"></div><div class="meta">series-2<code>#2FA97C</code></div></div>
+        <div class="sw" data-hex="#B8831F" data-token="--ch-3"><div class="chip" style="background:var(--ch-3)"></div><div class="meta">series-3<code>#B8831F</code></div></div>
+        <div class="sw" data-hex="#D95C6E" data-token="--ch-4"><div class="chip" style="background:var(--ch-4)"></div><div class="meta">series-4<code>#D95C6E</code></div></div>
+        <div class="sw" data-hex="#3E9CD6" data-token="--ch-5"><div class="chip" style="background:var(--ch-5)"></div><div class="meta">series-5<code>#3E9CD6</code></div></div>
+        <div class="sw" data-hex="#3A3F58" data-token="--ch-neutral"><div class="chip" style="background:var(--ch-neutral)"></div><div class="meta">comparison<code>#3A3F58</code></div></div>
       </div>
       <div class="card audit">
         <h3 class="xh">Palette check, computed rather than eyeballed</h3>
-        <div class="sub" style="font-size:12px;color:var(--ink-low);margin-top:2px">The chart colours were checked against #12141F on dark and #F7F8FC on light using an OKLab and colour vision test. The light set (#5050D6 #1F8A63 #8A6200 #D23B72 #2380BC) passes everything with no warnings.</div>
+        <div class="sub" style="font-size:var(--fs-xs);color:var(--ink-low);margin-top:2px">The chart colours were checked against #12141F on dark and #F7F8FC on light using an OKLab and colour vision test. The light set (#5050D6 #1F8A63 #8A6200 #D23B72 #2380BC) passes everything with no warnings.</div>
         <table>
           <thead><tr><th>Check</th><th>Result</th><th>Detail</th></tr></thead>
           <tbody>
@@ -119,216 +118,33 @@
 
     <section id="type">
       <header>
-        <div class="eyebrow">( TYPE )</div>
-        <h2>One workhorse, one flourish</h2>
-        <p>Outfit does all the work. Instrument Serif shows up once per screen at most, either as an italic word in a heading or as a number that deserves some weight. IBM Plex Mono handles labels, hostnames, timestamps and anything a machine produced. All three are woff2 files in <code style="font-family:var(--font-mono);font-size:12px">fonts/</code>.</p>
+        <div class="index-line"><span class="n">03</span><span class="t">Type</span></div>
+        <h2>One family for every heading</h2>
+        <p>Outfit sets all text and every heading. Heading sizes follow one rule: each level down divides by the square root of the golden ratio, so two levels make one factor of φ, and h6 is body size. IBM Plex Mono handles labels, hostnames, timestamps and anything a machine produced. Instrument Serif is kept for quotations and the drop cap that opens a long article. All three are woff2 files in <code class="t-data">fonts/</code>.</p>
       </header>
       <div class="card spec">
-        <div class="row"><span class="tag">display / 480</span><div class="t-display">Everything is <em class="serif-em">fine.</em></div></div>
-        <div class="row"><span class="tag">serif numerals</span><div class="t-serifnum">4.1 TB · 99.98%</div></div>
-        <div class="row"><span class="tag">heading / 520</span><div class="t-h2">Four machines, thirty three services</div></div>
-        <div class="row"><span class="tag">body / 380</span><div class="t-body">Proxima watches the hosts I run and the services on them. When something is wrong it says so once, clearly, with a note about what to check first.</div></div>
+        <div class="row"><span class="tag">h1 · 48.3</span><div class="fs-h1" style="color:var(--ink-hi);font-weight:var(--fw-h1);line-height:1.1">Four machines</div></div>
+        <div class="row"><span class="tag">h2 · 38.0</span><div class="fs-h2" style="color:var(--ink-hi);font-weight:var(--fw-h2)">Thirty three services</div></div>
+        <div class="row"><span class="tag">h3 · 29.8</span><div class="fs-h3" style="color:var(--ink-hi);font-weight:var(--fw-h3)">Disk on jupiter</div></div>
+        <div class="row"><span class="tag">h4 · 23.5</span><div class="fs-h4" style="color:var(--ink-hi);font-weight:var(--fw-h4)">Requests per hour</div></div>
+        <div class="row"><span class="tag">h5 · 18.4</span><div class="fs-h5" style="color:var(--ink-hi);font-weight:var(--fw-h5)">Recent events</div></div>
+        <div class="row"><span class="tag">h6 · 14.5</span><div class="fs-h6" style="color:var(--ink-hi);font-weight:var(--fw-h6)">Access tokens</div></div>
+        <div class="row"><span class="tag">body · 14.5</span><div class="t-body">Proxima watches the hosts I run and the services on them. When something is wrong it says so once, clearly, with a note about what to check first.</div></div>
+        <div class="row"><span class="tag">sm · 12.9</span><div style="font-size:var(--fs-sm)">Controls, table cells and secondary text.</div></div>
         <div class="row"><span class="tag">label / mono</span><div class="t-label">( REQUESTS PER HOUR )</div></div>
         <div class="row"><span class="tag">data / mono</span><div class="t-data">ganymede · vm on jupiter · up 42d</div></div>
+        <div class="row"><span class="tag">quote / serif</span><blockquote class="pull-quote">The only thing that should glow is the thing that is wrong.</blockquote></div>
       </div>
-      <div class="rule-note">rule: the serif appears once per screen. If two things want gravity, only the more important one gets it.</div>
-    </section>
-
-    <section id="surface">
-      <header>
-        <div class="eyebrow">( SURFACES )</div>
-        <h2>Three levels of glass</h2>
-        <p>Depth comes from layered translucency over the background blooms. Blur increases with height. Shadow only arrives at the top level. The three panels below sit over a bloom so you can see what passes through them.</p>
-      </header>
-      <div class="elev-stage">
-        <div class="elev e1"><h4>glass-1, resting</h4><code>alpha .03 · blur 8 · soft hairline</code></div>
-        <div class="elev e2"><h4>glass-2, raised</h4><code>alpha .055 · blur 18 · top highlight</code></div>
-        <div class="elev e3"><h4>glass-3, floating</h4><code>alpha .72 · blur 26 · shadow</code></div>
-      </div>
-      <div class="radius-row">
-        <div class="rd" style="border-radius:8px">r-s 8</div>
-        <div class="rd" style="border-radius:12px">r-m 12</div>
-        <div class="rd" style="border-radius:18px">r-l 18</div>
-        <div class="rd" style="border-radius:26px">r-xl 26</div>
-        <div class="rd" style="border-radius:999px">r-full</div>
-      </div>
-      <div class="rule-note">rule: anything you can tap is fully rounded. The capsule is the shape that makes this system recognisable.</div>
-    </section>
-
-    <section id="layout">
-      <header>
-        <div class="eyebrow">( LAYOUT )</div>
-        <h2>Three grids, one question</h2>
-        <p>Every page here is built from three grids. Which one you want comes down to a single question: <strong style="color:var(--ink-hi);font-weight:500">are the tiles in a row about the same height?</strong></p>
-      </header>
-
-      <h3 class="xh" style="margin-bottom:4px">1 · Mosaic, <code style="font-family:var(--font-mono);font-size:12.5px;color:var(--ink-low)">.mosaic</code> and <code style="font-family:var(--font-mono);font-size:12.5px;color:var(--ink-low)">.m-*</code></h3>
-      <div class="sub" style="font-size:12.5px;color:var(--ink-low);margin-bottom:12px">Twelve columns. Each tile says how wide it is and the rows line up. Good for a row of numbers or a set of cards that are all about the same size.</div>
-      <div class="mosaic">
-        <div class="card m-3" style="text-align:center;color:var(--ink-low);font-family:var(--font-mono);font-size:11px">.m-3</div>
-        <div class="card m-3" style="text-align:center;color:var(--ink-low);font-family:var(--font-mono);font-size:11px">.m-3</div>
-        <div class="card m-6" style="text-align:center;color:var(--ink-low);font-family:var(--font-mono);font-size:11px">.m-6</div>
-        <div class="card m-8" style="text-align:center;color:var(--ink-low);font-family:var(--font-mono);font-size:11px">.m-8</div>
-        <div class="card m-4" style="text-align:center;color:var(--ink-low);font-family:var(--font-mono);font-size:11px">.m-4</div>
-      </div>
-
-      <h3 class="xh" style="margin:22px 0 4px">2 · Columns, <code style="font-family:var(--font-mono);font-size:12.5px;color:var(--ink-low)">.cols-main</code> and <code style="font-family:var(--font-mono);font-size:12.5px;color:var(--ink-low)">.stack</code></h3>
-      <div class="sub" style="font-size:12.5px;color:var(--ink-low);margin-bottom:12px">Two columns that run down the page independently, so a short chart above a long table never leaves a hole next to it. This is what the <a href="dashboard.html" style="color:var(--accent)">overview page</a> uses.</div>
-      <div class="cols-main">
-        <div class="stack">
-          <div class="card" style="height:74px;color:var(--ink-low);font-family:var(--font-mono);font-size:11px">chart</div>
-          <div class="card" style="height:150px;color:var(--ink-low);font-family:var(--font-mono);font-size:11px">services table, keeps going, nothing left empty above it</div>
-        </div>
-        <div class="stack">
-          <div class="card" style="height:104px;color:var(--ink-low);font-family:var(--font-mono);font-size:11px">health donut</div>
-          <div class="card" style="height:52px;color:var(--ink-low);font-family:var(--font-mono);font-size:11px">disk meter</div>
-          <div class="card" style="height:56px;color:var(--ink-low);font-family:var(--font-mono);font-size:11px">events</div>
-        </div>
-      </div>
-      <div class="rule-note">rule: never put a tall table and a short card in the same mosaic row. Grid rows match the tallest cell, and the hole that leaves is the thing a dense page can least afford.</div>
-
-      <h3 class="xh" style="margin:22px 0 4px">3 · Panes, <code style="font-family:var(--font-mono);font-size:12.5px;color:var(--ink-low)">.panes</code> and <code style="font-family:var(--font-mono);font-size:12.5px;color:var(--ink-low)">.pane</code></h3>
-      <div class="sub" style="font-size:12.5px;color:var(--ink-low);margin-bottom:12px">Two equal halves. You edit on the left and see the result on the right. The right half takes <code style="font-family:var(--font-mono);font-size:12px">.pane-sticky</code> so it stays put while the form scrolls. See the <a href="studio.html" style="color:var(--accent)">alert studio</a>.</div>
-      <div class="panes">
-        <div class="pane">
-          <header><h2>Edit</h2></header>
-          <div class="card" style="height:96px;color:var(--ink-low);font-family:var(--font-mono);font-size:11px">form sections</div>
-        </div>
-        <div class="pane">
-          <header><h2>Result</h2><span class="u-right"></span><span class="live"><i></i>live</span></header>
-          <div class="pane-preview"><span class="eyebrow">( RESULT )</span><div class="card" style="background:var(--glass-2);height:60px;color:var(--ink-low);font-family:var(--font-mono);font-size:11px">what you just made</div></div>
-        </div>
-      </div>
-
-      <h3 class="xh" style="margin:22px 0 4px">Save bar and margin nav</h3>
-      <div class="sub" style="font-size:12.5px;color:var(--ink-low);margin-bottom:12px">A long form page gets one save bar rather than a save button per section, plus an anchor list down the right margin so a wide screen carries something useful instead of nothing. Both are working on the <a href="settings.html" style="color:var(--accent)">settings page</a>.</div>
-      <div class="card">
-        <div class="demo-row" style="margin-bottom:0">
-          <span class="savebar on" style="position:static;transform:none;opacity:1;box-shadow:none">
-            <span class="sdot" aria-hidden="true"></span>
-            <span class="n"><b>2</b> unsaved changes</span>
-            <button class="btn btn-ghost btn-sm" type="button">Discard</button>
-            <button class="btn btn-primary btn-sm" type="button">Save</button>
-          </span>
-        </div>
-      </div>
-      <div class="rule-note">rule: the count compares every field against what it was when the page loaded, so undoing an edit by hand takes the number back down. It never claims you have unsaved work when nothing differs.</div>
-    </section>
-
-    <section id="controls">
-      <header>
-        <div class="eyebrow">( CONTROLS )</div>
-        <h2>Buttons, inputs, chips</h2>
-      </header>
-      <div class="demo-row">
-        <button class="btn btn-primary" type="button">New alert rule</button>
-        <button class="btn btn-glass" type="button">Export</button>
-        <button class="btn btn-ghost" type="button">Cancel</button>
-        <button class="btn btn-danger" type="button">Revoke token</button>
-        <button class="btn btn-primary" type="button" disabled>New alert rule</button>
-      </div>
-      <div class="demo-row">
-        <label class="input"><span aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-4.5-4.5"/></svg></span><input type="text" placeholder="Search hosts and services"></label>
-        <div class="cta-combo"><input type="email" placeholder="Email for release notes" aria-label="Email for release notes"><button class="btn btn-primary" type="button">Keep me posted</button></div>
-      </div>
-      <div class="demo-row" role="group" aria-label="Filters">
-        <button class="fchip on" type="button">All <b>33</b></button>
-        <button class="fchip" type="button">Healthy <b>29</b></button>
-        <button class="fchip" type="button">Degraded <b>2</b></button>
-        <button class="fchip" type="button">Down <b>1</b></button>
-      </div>
-      <div class="demo-row">
-        <div class="seg" role="group" aria-label="View"><button class="on" type="button">Board</button><button type="button">List</button><button type="button">Load</button></div>
-        <button class="toggle on" type="button" role="switch" aria-checked="true" aria-label="Live updates"></button>
-        <span style="font-size:13px">Live updates</span>
-      </div>
-      <div class="rule-note">rule: a filter chip always carries its count, so you know how big a set is before you commit to looking at it.</div>
-    </section>
-
-    <section id="forms">
-      <header>
-        <div class="eyebrow">( FORMS )</div>
-        <h2>Fields, selects, setting rows</h2>
-        <p>Single line inputs are capsules. Anything multi line relaxes to a softer corner. The label sits above, help and error text sit below. A setting row pairs a label and a sentence of explanation with its control, and it is the unit every preferences screen is made of. All of it is working on the <a href="settings.html" style="color:var(--accent)">settings page</a>.</p>
-      </header>
-      <div class="card">
-        <div class="fieldrow">
-          <div class="field">
-            <label for="d-name">Host name</label>
-            <input type="text" id="d-name" value="ganymede">
-            <span class="help">Shown everywhere this machine appears.</span>
-          </div>
-          <div class="field">
-            <label for="d-region">Runs on</label>
-            <span class="selwrap"><select id="d-region"><option selected>jupiter</option><option>mars</option><option>standalone</option></select></span>
-          </div>
-          <div class="field invalid">
-            <label for="d-hook">Webhook</label>
-            <input type="url" id="d-hook" value="htp://alerts.home">
-            <span class="error">Needs to start with https://</span>
-          </div>
-        </div>
-        <div class="field u-mt-2">
-          <label for="d-notes">Notes</label>
-          <textarea id="d-notes" placeholder="Anything you want to remember about this host"></textarea>
-        </div>
-        <div class="u-flex u-mt-2">
-          <label class="check"><input type="checkbox" checked> Daily summary</label>
-          <label class="check"><input type="checkbox"> Push alerts</label>
-          <label class="check"><input type="radio" name="d-density" checked> Comfortable</label>
-          <label class="check"><input type="radio" name="d-density"> Compact</label>
-        </div>
-        <div class="u-mt-3" style="border-top:1px solid var(--hairline-soft);padding-top:4px">
-          <div class="setrow">
-            <div class="info"><b>Live updates</b><span>Stream new readings in as they arrive.</span></div>
-            <div class="ctl"><button class="toggle on" type="button" role="switch" aria-checked="true" aria-label="Live updates"></button></div>
-          </div>
-          <div class="setrow">
-            <div class="info"><b>Quiet hours</b><span>Hold anything below critical until 08:00.</span></div>
-            <div class="ctl"><button class="toggle" type="button" role="switch" aria-checked="false" aria-label="Quiet hours"></button></div>
-          </div>
-        </div>
-      </div>
-      <div class="rule-note">rule: error text never appears without the rose border, and the rose border never appears without error text. Say it twice or do not say it.</div>
-    </section>
-
-    <section id="status">
-      <header>
-        <div class="eyebrow">( STATUS )</div>
-        <h2>Pills you can read</h2>
-        <p>A translucent fill, a matching border, a dot and a word. There are two separate systems here and they never fight for the same spot: <strong style="color:var(--ink-hi);font-weight:500">facts</strong> live in plain mono chips, <strong style="color:var(--ink-hi);font-weight:500">state</strong> lives in coloured pills.</p>
-      </header>
-      <div class="card">
-        <div class="pill-row" style="margin-bottom:14px">
-          <span class="pill pill-mint"><i class="dot"></i>Healthy</span>
-          <span class="pill pill-sky"><i class="dot"></i>Starting</span>
-          <span class="pill pill-amber"><i class="dot"></i>Degraded</span>
-          <span class="pill pill-rose"><i class="dot"></i>Down</span>
-          <span class="pill pill-mute"><i class="dot"></i>Stopped</span>
-        </div>
-        <div class="pill-row" style="margin-bottom:14px">
-          <span class="pill pill-rose">Critical</span>
-          <span class="pill pill-amber">High</span>
-          <span class="pill pill-mute">Low</span>
-          <span style="font-size:12px;color:var(--ink-low)">alert severity</span>
-        </div>
-        <div class="pill-row">
-          <span class="chip-f">5432</span>
-          <span class="chip-f">2.1 GB</span>
-          <span class="chip-f">up 42d</span>
-          <span class="chip-f">postgres:16.4</span>
-          <span style="font-size:12px;color:var(--ink-low)">facts stay mono and neutral, never coloured</span>
-        </div>
-      </div>
+      <div class="rule-note">rule: the serif is for quotations and the drop cap. headings, numbers and controls stay in Outfit.</div>
     </section>
 
     <section id="kpi">
       <header>
-        <div class="eyebrow">( NUMBERS )</div>
-        <h2>Three ways to show one</h2>
-        <p>A is the default. B tries a soft gradient behind the number. C uses the serif. Keep whichever earns its place, and never more than one B or C on a screen.</p>
+        <div class="index-line"><span class="n">04</span><span class="t">Numbers</span></div>
+        <h2>Two ways to show one</h2>
+        <p>A is the default. B puts a soft gradient behind the number. Use at most one B on a screen. Numbers use tabular figures so columns of them line up.</p>
       </header>
-      <div class="grid g3">
+      <div class="grid g2">
         <div class="kpi"><span class="variant-tag">A · default</span>
           <div class="k-label">Services up</div>
           <div class="k-val">31 / 33</div>
@@ -341,17 +157,13 @@
           <div class="k-val">584k</div>
           <div class="k-foot"><span class="delta up">+8.2%</span><span>on yesterday</span></div>
         </div>
-        <div class="kpi kpi-serif"><span class="variant-tag">C · serif</span>
-          <div class="k-label">Storage used</div>
-          <div class="k-val">4.1 TB</div>
-          <div class="k-foot"><span class="delta up">+120 GB</span><span>of 6 TB pooled</span></div>
-        </div>
+
       </div>
     </section>
 
     <section id="table">
       <header>
-        <div class="eyebrow">( TABLES )</div>
+        <div class="index-line"><span class="n">05</span><span class="t">Tables</span></div>
         <h2>One line each until you ask</h2>
         <p>Closed, a row is a name, what it is, a couple of facts and a status pill. Open, it adds the full detail, a note about what is wrong and the buttons that act on it. Click a row and see.</p>
       </header>
@@ -422,7 +234,7 @@
 
     <section id="board">
       <header>
-        <div class="eyebrow">( BOARDS )</div>
+        <div class="index-line"><span class="n">06</span><span class="t">Boards</span></div>
         <h2>Colour you feel before you read</h2>
         <p>Each column carries a faint wash of its state colour, so you know which lane you are looking at before reading a single word. The cards stay neutral glass so the wash comes through them.</p>
       </header>
@@ -445,7 +257,7 @@
 
     <section id="charts">
       <header>
-        <div class="eyebrow">( CHARTS )</div>
+        <div class="index-line"><span class="n">07</span><span class="t">Charts</span></div>
         <h2>Thin marks, labelled directly</h2>
         <p>One line with a dotted forecast on the end, comparison bars with the subject picked out, and a segmented meter. Text always uses text colours. Colour belongs to the marks.</p>
       </header>
@@ -479,49 +291,49 @@
 
     <section id="responsive">
       <header>
-        <div class="eyebrow">( RESPONSIVE )</div>
+        <div class="index-line"><span class="n">08</span><span class="t">Responsive</span></div>
         <h2>The navigation goes off canvas, nothing else disappears</h2>
         <p>A phone gets the same pages, not a reduced set. Grids collapse on a fixed ladder, the app sidebar and this rail slide in from the left rather than vanishing, and every chart stays readable and inspectable with a finger.</p>
       </header>
 
       <h3 class="xh" style="margin-bottom:4px">1 · The ladder</h3>
-      <div class="sub" style="font-size:12.5px;color:var(--ink-low);margin-bottom:12px">Six widths, each owned by a single decision. If a change does not belong to one of these, it does not happen.</div>
+      <div class="sub" style="font-size:var(--fs-sm);color:var(--ink-low);margin-bottom:12px">Six widths, each owned by a single decision. If a change does not belong to one of these, it does not happen.</div>
       <div class="audit">
         <table>
           <thead><tr><th>Width</th><th>What changes</th><th>Why</th></tr></thead>
           <tbody>
-            <tr><td>1140</td><td><code style="font-family:var(--font-mono);font-size:11.5px">.settings-cols</code> single column, <code style="font-family:var(--font-mono);font-size:11.5px">.subnav</code> hides</td><td>the "on this page" list stops earning its width</td></tr>
-            <tr><td>1100</td><td><code style="font-family:var(--font-mono);font-size:11.5px">.mosaic</code> spans halve</td><td>twelve columns stop reading as twelve</td></tr>
-            <tr><td>980</td><td><code style="font-family:var(--font-mono);font-size:11.5px">.cols-main</code>, <code style="font-family:var(--font-mono);font-size:11.5px">.panes</code> and the marketing embed go single column</td><td>two columns of data stop fitting side by side</td></tr>
-            <tr><td>880</td><td><code style="font-family:var(--font-mono);font-size:11.5px">.side</code> and <code style="font-family:var(--font-mono);font-size:11.5px">.rail</code> become drawers, <code style="font-family:var(--font-mono);font-size:11.5px">.navtoggle</code> and <code style="font-family:var(--font-mono);font-size:11.5px">.brand-sm</code> appear</td><td>the app shell loses its sidebar column</td></tr>
-            <tr><td>720</td><td><code style="font-family:var(--font-mono);font-size:11.5px">nav.top .links</code> becomes a dropdown panel</td><td>the marketing links stop fitting beside the logo</td></tr>
+            <tr><td>1140</td><td><code style="font-family:var(--font-mono);font-size:var(--fs-xs)">.settings-cols</code> single column, <code style="font-family:var(--font-mono);font-size:var(--fs-xs)">.subnav</code> hides</td><td>the "on this page" list stops earning its width</td></tr>
+            <tr><td>1100</td><td><code style="font-family:var(--font-mono);font-size:var(--fs-xs)">.mosaic</code> spans halve</td><td>twelve columns stop reading as twelve</td></tr>
+            <tr><td>980</td><td><code style="font-family:var(--font-mono);font-size:var(--fs-xs)">.cols-main</code>, <code style="font-family:var(--font-mono);font-size:var(--fs-xs)">.panes</code> and the marketing embed go single column</td><td>two columns of data stop fitting side by side</td></tr>
+            <tr><td>880</td><td><code style="font-family:var(--font-mono);font-size:var(--fs-xs)">.side</code> and <code style="font-family:var(--font-mono);font-size:var(--fs-xs)">.rail</code> become drawers, <code style="font-family:var(--font-mono);font-size:var(--fs-xs)">.navtoggle</code> and <code style="font-family:var(--font-mono);font-size:var(--fs-xs)">.brand-sm</code> appear</td><td>the app shell loses its sidebar column</td></tr>
+            <tr><td>720</td><td><code style="font-family:var(--font-mono);font-size:var(--fs-xs)">nav.top .links</code> becomes a dropdown panel</td><td>the marketing links stop fitting beside the logo</td></tr>
             <tr><td>620</td><td>table rows restack, comparison bars narrow, frame padding tightens</td><td>the last width where two columns of anything work</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="rule-note">rule: a collapsed grid column is <code style="font-family:var(--font-mono);font-size:11.5px">minmax(0, 1fr)</code>, never <code style="font-family:var(--font-mono);font-size:11.5px">1fr</code>. A bare <code style="font-family:var(--font-mono);font-size:11.5px">1fr</code> is <code style="font-family:var(--font-mono);font-size:11.5px">minmax(auto, 1fr)</code> and cannot shrink below its content, which is how a chart ends up half off the screen.</div>
+      <div class="rule-note">rule: a collapsed grid column is <code style="font-family:var(--font-mono);font-size:var(--fs-xs)">minmax(0, 1fr)</code>, never <code style="font-family:var(--font-mono);font-size:var(--fs-xs)">1fr</code>. A bare <code style="font-family:var(--font-mono);font-size:var(--fs-xs)">1fr</code> is <code style="font-family:var(--font-mono);font-size:var(--fs-xs)">minmax(auto, 1fr)</code> and cannot shrink below its content, which is how a chart ends up half off the screen.</div>
 
-      <h3 class="xh" style="margin:22px 0 4px">2 · The drawer, <code style="font-family:var(--font-mono);font-size:12.5px;color:var(--ink-low)">.navtoggle</code> and <code style="font-family:var(--font-mono);font-size:12.5px;color:var(--ink-low)">data-nav-toggle</code></h3>
-      <div class="sub" style="font-size:12.5px;color:var(--ink-low);margin-bottom:12px">One button, one attribute, whose value is a selector for the panel it opens. Everything else is wired for you: the shared scrim, focus moved into the drawer and trapped there, Escape to close and return focus to the button, a tap on any link inside to close, and a forced close when the viewport goes back above the breakpoint. Add <code style="font-family:var(--font-mono);font-size:12px">data-nav-breakpoint</code> when the panel collapses somewhere other than 880, as the marketing pages do at 720.</div>
+      <h3 class="xh" style="margin:22px 0 4px">2 · The drawer, <code style="font-family:var(--font-mono);font-size:var(--fs-sm);color:var(--ink-low)">.navtoggle</code> and <code style="font-family:var(--font-mono);font-size:var(--fs-sm);color:var(--ink-low)">data-nav-toggle</code></h3>
+      <div class="sub" style="font-size:var(--fs-sm);color:var(--ink-low);margin-bottom:12px">One button, one attribute, whose value is a selector for the panel it opens. Everything else is wired for you: the shared scrim, focus moved into the drawer and trapped there, Escape to close and return focus to the button, a tap on any link inside to close, and a forced close when the viewport goes back above the breakpoint. Add <code style="font-family:var(--font-mono);font-size:var(--fs-xs)">data-nav-breakpoint</code> when the panel collapses somewhere other than 880, as the marketing pages do at 720.</div>
       <div class="demo-row">
         <button class="navtoggle" type="button" style="display:grid" aria-label="Navigation toggle specimen"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
         <span class="t-data">&lt;button class="navtoggle" data-nav-toggle="#app-nav"&gt;</span>
       </div>
-      <div class="sub" style="font-size:12.5px;color:var(--ink-low);margin-top:10px">Narrow this window past 880 and the live one appears in the top left, over the rail it opens. On the console pages it sits at the head of the topbar instead, because there is already a bar to put it in.</div>
-      <div class="rule-note">rule: a closed drawer is <code style="font-family:var(--font-mono);font-size:11.5px">visibility: hidden</code>, not <code style="font-family:var(--font-mono);font-size:11.5px">display: none</code>. Hidden keeps its links out of the tab order, which display would also do, but it still allows the panel to slide.</div>
+      <div class="sub" style="font-size:var(--fs-sm);color:var(--ink-low);margin-top:10px">Narrow this window past 880 and the live one appears in the top left, over the rail it opens. On the console pages it sits at the head of the topbar instead, because there is already a bar to put it in.</div>
+      <div class="rule-note">rule: a closed drawer is <code style="font-family:var(--font-mono);font-size:var(--fs-xs)">visibility: hidden</code>, not <code style="font-family:var(--font-mono);font-size:var(--fs-xs)">display: none</code>. Hidden keeps its links out of the tab order, which display would also do, but it still allows the panel to slide.</div>
 
       <h3 class="xh" style="margin:22px 0 4px">3 · Charts under a finger</h3>
-      <div class="sub" style="font-size:12.5px;color:var(--ink-low);margin-bottom:12px">A spark chart measures its own box and sets its <code style="font-family:var(--font-mono);font-size:12px">viewBox</code> so that one user unit is one CSS pixel. Nothing is scaled unevenly, which is what keeps the dotted forecast dotted at 390px wide instead of thinning into blank space. Press and drag the chart above for the crosshair and the readout, and let go to dismiss it. The chart claims sideways drags and leaves vertical ones to the page, so scrolling over it still works.</div>
-      <div class="rule-note">rule: never set <code style="font-family:var(--font-mono);font-size:11.5px">preserveAspectRatio="none"</code> on a chart. It buys a chart that fills its box and costs you every stroke width, dash and radius in it.</div>
+      <div class="sub" style="font-size:var(--fs-sm);color:var(--ink-low);margin-bottom:12px">A spark chart measures its own box and sets its <code style="font-family:var(--font-mono);font-size:var(--fs-xs)">viewBox</code> so that one user unit is one CSS pixel. Nothing is scaled unevenly, which is what keeps the dotted forecast dotted at 390px wide instead of thinning into blank space. Press and drag the chart above for the crosshair and the readout, and let go to dismiss it. The chart claims sideways drags and leaves vertical ones to the page, so scrolling over it still works.</div>
+      <div class="rule-note">rule: never set <code style="font-family:var(--font-mono);font-size:var(--fs-xs)">preserveAspectRatio="none"</code> on a chart. It buys a chart that fills its box and costs you every stroke width, dash and radius in it.</div>
 
       <h3 class="xh" style="margin:22px 0 4px">4 · The background on a small screen</h3>
-      <div class="sub" style="font-size:12.5px;color:var(--ink-low);margin-bottom:12px">The blooms are placed as fractions of the canvas box rather than at fixed coordinates, so they stay round on a tall narrow screen instead of smearing into vertical bands. Below 880 the blur softens from 90px to 60px, and the grain drops its blend mode, which removes a full screen compositing layer and the banding it used to show over flat mode. Flat itself now stops painting and animating the ink layer altogether rather than leaving it running at zero opacity.</div>
+      <div class="sub" style="font-size:var(--fs-sm);color:var(--ink-low);margin-bottom:12px">The blooms are placed as fractions of the canvas box rather than at fixed coordinates, so they stay round on a tall narrow screen instead of smearing into vertical bands. Below 880 the blur softens from 90px to 60px, and the grain drops its blend mode, which removes a full screen compositing layer and the banding it used to show over flat mode. Flat itself now stops painting and animating the ink layer altogether rather than leaving it running at zero opacity.</div>
       <div class="rule-note">rule: flat is a real mode, not a hidden one. If the switch says the atmosphere is off, nothing about it should still be costing the device work.</div>
     </section>
   </main>
 </div>
 
-<footer class="pagefoot"><div class="inner"><span>Proxima design foundation · v1.0 · dark first, light capable</span><span>chart colours checked on both surfaces</span></div></footer>
+<footer class="pagefoot"><div class="inner"><span>Proxima design foundation · v0.2.0 · dark first, light capable</span><span>chart colours checked on both surfaces</span></div></footer>
 
 <div class="fab" id="fab">
   <div class="fab-panel" role="group" aria-label="Display options">
@@ -533,10 +345,10 @@
     </div>
     <div class="fab-row"><span>Accent</span>
       <div class="fseg-dots" role="group" aria-label="Accent color">
-        <button id="ac-indigo" class="dot on" style="--dc:#8D8DF5" type="button" aria-label="Indigo accent"></button>
-        <button id="ac-teal" class="dot" style="--dc:#5FD3C8" type="button" aria-label="Teal accent"></button>
-        <button id="ac-ember" class="dot" style="--dc:#F2A566" type="button" aria-label="Ember accent"></button>
-        <button id="ac-lime" class="dot" style="--dc:#CFE763" type="button" aria-label="Lime accent"></button>
+        <button id="ac-indigo" class="dot on" style="--dc:var(--swatch-indigo)" type="button" aria-label="Indigo accent"></button>
+        <button id="ac-teal" class="dot" style="--dc:var(--swatch-teal)" type="button" aria-label="Teal accent"></button>
+        <button id="ac-ember" class="dot" style="--dc:var(--swatch-ember)" type="button" aria-label="Ember accent"></button>
+        <button id="ac-lime" class="dot" style="--dc:var(--swatch-lime)" type="button" aria-label="Lime accent"></button>
       </div>
     </div>
   </div>

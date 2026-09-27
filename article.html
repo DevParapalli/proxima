@@ -26,13 +26,12 @@
 
 <article class="article-page">
   <header class="article-head">
-    <div class="eyebrow">( <b>NOTES</b> · 07 )</div>
-    <h1>Why I built my <em class="serif-em">own</em> console</h1>
+    <h1>Why I built my own console</h1>
     <div class="byline">
       <span class="av">DP</span>
       <div class="who">
         <b>Devansh Parapalli</b>
-        <span>26 JUL 2026 · 5 MIN READ</span>
+        <span>Note 07 · 26 Jul 2026 · 5 min read</span>
       </div>
     </div>
     <div class="tags">
@@ -49,7 +48,7 @@
 
     <h2>Everything is named after something in the sky</h2>
 
-    <p>Physical machines get planets. The virtual machines running on them get that planet's moons. Anything in the cloud gets a gas, because cloud instances come and go and the noble gases are the ones that do not react with anything.</p>
+    <p>Physical machines get planets. The virtual machines running on them get that planet's moons. Anything in the cloud gets a gas, because cloud instances come and go and the noble gases are the ones that do not react with anything.<span class="sn-ref" aria-hidden="true"></span><span class="sidenote" role="note">Argon is noble. Argonide, kryptonane and argonene are not real compounds; the suffix carries the role.</span></p>
 
     <pre><code>jupiter            main workstation
   ├── io           git and CI
@@ -115,6 +114,26 @@ argonene           CI runner, dies after every job</code></pre>
 
     <p>At 2am I do not need more information. I need to already know where to look.</p>
 
+    <h2>Names used in this note</h2>
+    <nav class="glossary-index" aria-label="Glossary letters"><a href="#g-a">A</a><a href="#g-g">G</a><a href="#g-j">J</a><a href="#g-k">K</a></nav>
+    <div class="glossary">
+      <section id="g-a"><h3>A</h3>
+        <dl>
+          <dt>argon</dt><dd>General compute in the cloud.</dd>
+          <dt>argonene</dt><dd>CI runner that is created for a job and destroyed after it.</dd>
+        </dl>
+      </section>
+      <section id="g-g"><h3>G</h3>
+        <dl><dt>ganymede</dt><dd>Virtual machine on jupiter that serves media.</dd></dl>
+      </section>
+      <section id="g-j"><h3>J</h3>
+        <dl><dt>jupiter</dt><dd>The main workstation and host for four virtual machines.</dd></dl>
+      </section>
+      <section id="g-k"><h3>K</h3>
+        <dl><dt>kryptonane</dt><dd>Stateful database instance.</dd></dl>
+      </section>
+    </div>
+
     <p class="foot-note">The interface in this note is the same design system the rest of this site is built from. The components are documented in the <a href="docs.html">design foundation</a>, and the console itself is the <a href="dashboard.html">overview page</a>.</p>
   </div>
 </article>
@@ -129,10 +148,10 @@ argonene           CI runner, dies after every job</code></pre>
     </div>
     <div class="fab-row"><span>Accent</span>
       <div class="fseg-dots" role="group" aria-label="Accent color">
-        <button id="ac-indigo" class="dot on" style="--dc:#8D8DF5" type="button" aria-label="Indigo accent"></button>
-        <button id="ac-teal" class="dot" style="--dc:#5FD3C8" type="button" aria-label="Teal accent"></button>
-        <button id="ac-ember" class="dot" style="--dc:#F2A566" type="button" aria-label="Ember accent"></button>
-        <button id="ac-lime" class="dot" style="--dc:#CFE763" type="button" aria-label="Lime accent"></button>
+        <button id="ac-indigo" class="dot on" style="--dc:var(--swatch-indigo)" type="button" aria-label="Indigo accent"></button>
+        <button id="ac-teal" class="dot" style="--dc:var(--swatch-teal)" type="button" aria-label="Teal accent"></button>
+        <button id="ac-ember" class="dot" style="--dc:var(--swatch-ember)" type="button" aria-label="Ember accent"></button>
+        <button id="ac-lime" class="dot" style="--dc:var(--swatch-lime)" type="button" aria-label="Lime accent"></button>
       </div>
     </div>
   </div>

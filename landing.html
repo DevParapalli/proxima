@@ -28,8 +28,7 @@
   <header class="hero">
     <canvas id="hero-ink" width="1200" height="800" aria-hidden="true"></canvas>
     <div class="dots" aria-hidden="true"></div>
-    <div class="eyebrow">( <b>PROXIMA</b> · SELF HOSTED )</div>
-    <h1>One page for every machine <em class="si">you run.</em></h1>
+    <h1>One page for every machine you run.</h1>
     <p class="sub">I built Proxima to watch my own hosts and the services on them. It stays quiet when things are fine and it is loud exactly once, when something breaks.</p>
     <form class="cta-combo" onsubmit="return false">
       <input type="email" placeholder="Email for release notes" aria-label="Email for release notes">
@@ -65,14 +64,14 @@
   </header>
 
   <section class="fog">
-    <div class="center"><span class="eyebrow">( THE POINT )</span></div>
+    
     <p class="manifesto">I check on my machines at <b>2am</b>, in a dark room, on a phone. The only thing that should <em>glow</em> is <b>the thing that is wrong.</b></p>
     <div class="sig">Devansh Parapalli</div>
   </section>
 
   <section class="features" id="what">
     <div class="sect-head">
-      <span class="eyebrow">( WHAT IT DOES )</span>
+      <span class="index-line"><span class="n">01</span><span class="t">What it does</span></span>
       <h2>Four things, done properly</h2>
     </div>
     <div class="fgrid">
@@ -85,8 +84,8 @@
 
   <section class="proof" id="weight">
     <div class="wrap">
-      <span class="eyebrow">( WEIGHT )</span>
-      <h2 style="font-size:clamp(28px,4vw,38px);font-weight:470;letter-spacing:-.015em;color:var(--ink-hi);margin-top:14px;max-width:20ch;text-wrap:balance">Lighter than the things it <em class="si">watches.</em></h2>
+      <span class="index-line"><span class="n">02</span><span class="t">Weight</span></span>
+      <h2 class="fog-title">Lighter than the things it watches.</h2>
       <div class="bars">
         <div class="brow lead"><span class="bl">Proxima</span><span class="track"><span class="bar" style="width:5%"></span><span class="bv">48 MB</span></span></div>
         <div class="brow"><span class="bl">Metrics stack</span><span class="track"><span class="bar" style="width:44%"></span><span class="bv">940 MB</span></span></div>
@@ -98,7 +97,7 @@
 
   <section class="prods" id="run">
     <div class="sect-head">
-      <span class="eyebrow">( RUNNING IT )</span>
+      <span class="index-line"><span class="n">03</span><span class="t">Running it</span></span>
       <h2>However you like</h2>
     </div>
     <div class="pgrid">
@@ -111,8 +110,8 @@
 
   <section class="cta-band" id="cta">
     <div class="glow" aria-hidden="true"></div>
-    <span class="eyebrow">( TRY IT )</span>
-    <h2>See your own machines <em class="si">after dark.</em></h2>
+    <span class="index-line"><span class="n">04</span><span class="t">Try it</span></span>
+    <h2>See your own machines after dark.</h2>
     <div class="actions">
       <a class="btn btn-primary" href="dashboard.html">Open the console</a>
       <a class="btn btn-glass" href="article.html">Read why I built it</a>
@@ -134,10 +133,10 @@
   <div class="fab-panel" role="group" aria-label="Display options">
     <div class="fab-row"><span>Accent</span>
       <div class="fseg-dots" role="group" aria-label="Accent color">
-        <button id="ac-indigo" class="dot on" style="--dc:#8D8DF5" type="button" aria-label="Indigo accent"></button>
-        <button id="ac-teal" class="dot" style="--dc:#5FD3C8" type="button" aria-label="Teal accent"></button>
-        <button id="ac-ember" class="dot" style="--dc:#F2A566" type="button" aria-label="Ember accent"></button>
-        <button id="ac-lime" class="dot" style="--dc:#CFE763" type="button" aria-label="Lime accent"></button>
+        <button id="ac-indigo" class="dot on" style="--dc:var(--swatch-indigo)" type="button" aria-label="Indigo accent"></button>
+        <button id="ac-teal" class="dot" style="--dc:var(--swatch-teal)" type="button" aria-label="Teal accent"></button>
+        <button id="ac-ember" class="dot" style="--dc:var(--swatch-ember)" type="button" aria-label="Ember accent"></button>
+        <button id="ac-lime" class="dot" style="--dc:var(--swatch-lime)" type="button" aria-label="Lime accent"></button>
       </div>
     </div>
   </div>

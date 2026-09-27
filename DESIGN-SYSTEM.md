@@ -1,4 +1,4 @@
-# Proxima Design System, v1.0
+# Proxima Design System, v0.2.0
 
 The design system behind my homelab console. It is dark first, built on tinted neutrals with one
 accent colour, and it is meant for looking at machines at night. One stylesheet, one behaviour file,
@@ -6,7 +6,7 @@ fonts served locally, and seven sample pages that all tell the same story.
 
 Built by Devansh Parapalli, for my own projects.
 
-Machine readable tokens are in [`tokens.json`](tokens.json).
+Tokens shared with Centauri, the print half of the system, are in [`tokens.toml`](tokens.toml).
 The portable version for restyling other repos is [`PROXIMA.md`](PROXIMA.md).
 
 ---
@@ -32,7 +32,8 @@ design-system/
 ├── settings.html            forms, save bar, margin nav
 ├── login.html               sign in
 ├── DESIGN-SYSTEM.md         this file
-├── tokens.json              the same tokens in W3C format
+├── tokens.toml              tokens shared with Centauri (canonical copy)
+├── scripts/tokens.py        regenerates the shared token blocks in proxima.css
 └── PROXIMA.md               the portable kit
 ```
 
@@ -74,8 +75,14 @@ Six rules the system does not break.
 ## Tokens
 
 All tokens are CSS custom properties on `:root`, which is the dark theme. The light theme overrides
-them under `html.theme-light`. Accents swap under `html.accent-teal`, `-ember` and `-lime`. Exact
-values live in `tokens.json`.
+them under `html.theme-light`. Accents swap under `html.accent-teal`, `-ember` and `-lime`.
+
+Neutrals, accents, state colours, chart series and the type-scale rule are shared
+with Centauri. They are defined once in `tokens.toml` and written into `proxima.css` by
+`uv run scripts/tokens.py`, which replaces only the block between the `tokens:begin` and
+`tokens:end` markers. Values in that block MUST NOT be edited by hand; `--check` exits non-zero when
+the stylesheet is out of date. Everything else in the stylesheet (typefaces, weights, glass, hairlines, radii, spacing,
+motion) belongs to Proxima alone.
 
 ### Neutrals
 
@@ -157,15 +164,39 @@ Spacing is a 4px base: `--sp-1` through `--sp-7` give 4, 8, 12, 16, 24, 32 and 4
 | Face | Files | Job |
 | --- | --- | --- |
 | Outfit, variable 300 to 700 | `outfit-variable.woff2` | everything |
-| Instrument Serif, 400 and italic | `instrument-serif-*.woff2` | one flourish per screen, either an italic word in a heading or a number that deserves weight |
+| Instrument Serif, 400 and italic | `instrument-serif-*.woff2` | quotations (block quote, `.pull-quote`, `.epigraph`) and the drop cap in long-form prose; nothing else |
 | IBM Plex Mono, 400 and 500 | `ibm-plex-mono-*.woff2` | labels, hostnames, timestamps, anything a machine produced |
 
-The scale, as classes: `.t-display` at clamp(34 to 46) weight 480, `.t-h2` at 21 weight 520,
-`.t-body` at 14.5 weight 380, `.t-label` mono 11 uppercase with wide tracking, `.t-data` mono 12.5.
-Body weight is 380, which the variable font makes a real weight rather than a rounding.
+Headings are Outfit at every level. Sizes follow one rule: `size(hN) = body × φ^((6 − N) / 2)`,
+so each level down divides by √φ, every second level is a full factor of φ, and h6 is body size.
 
-Eyebrows are mono, uppercase, and wrapped in parentheses. Numbers in tables and stat tiles use
-`font-variant-numeric: tabular-nums`.
+| Token | px | Weight | Use |
+| --- | --- | --- | --- |
+| `--fs-h1` | 48.3 | 480 | page title |
+| `--fs-h2` | 38.0 | 500 | section title on content pages |
+| `--fs-h3` | 29.8 | 520 | subsection |
+| `--fs-h4` | 23.5 | 530 | prose h2, feature titles |
+| `--fs-h5` | 18.4 | 540 | panel titles on dense pages |
+| `--fs-h6` | 14.5 | 560 | card titles |
+| `--fs-lg` | 16.4 | | long-form prose, hero subtitles |
+| `--fs-body` | 14.5 | 380 | body |
+| `--fs-sm` | 12.9 | | controls, table cells, secondary text |
+| `--fs-xs` | 11.4 | | captions, tooltips |
+| `--fs-2xs` | 10.1 | | mono labels and tags |
+
+The small tier steps down from body by the half step (√√φ ≈ 1.128). `.fs-h1` to `.fs-h6` set a
+heading's visual size without changing its level, so the document outline stays correct on dense
+pages. Body weight is 380, which the variable font makes a real weight rather than a rounding.
+
+Sections are introduced by an index line (`.index-line`): the section number in the accent and its name at small size, on a hairline across the width. There are no eyebrows. Numbered sets of cards open with `.card-num`, a large numeral in the accent. Numbers in tables and stat tiles use
+`font-variant-numeric: tabular-nums`; `.num` applies it anywhere.
+
+### Motion
+
+`--dur-fast` 120ms for hovers and toggles, `--dur-base` 180ms for state changes, `--dur-move` 250ms
+for panels that slide, `--dur-slow` 600ms for atmosphere. `--ease` is the standard curve and
+`--ease-out` the settling curve for things that arrive. Every duration is 0ms under
+`prefers-reduced-motion: reduce`.
 
 ### Atmosphere
 
@@ -283,8 +314,7 @@ surfaces means working out which one owns your edit.
 ### Data
 
 - `.kpi` is the stat tile: a mono label, a large tabular number, then a delta and some context.
-  `.kpi-aurora` adds a soft gradient and `.kpi-serif` sets the number in the serif. At most one of
-  each per screen.
+  `.kpi-aurora` adds a soft gradient. At most one per screen.
 - `.xtable` with `.xrow` is the expandable table. Closed, a row shows a name, a description, a few
   facts and a status pill. Open, it adds `.xdetail`, a `.riskbar`, an optional callout and
   `.xactions`. The buttons live inside the opened row, so a closed row offers exactly one action.

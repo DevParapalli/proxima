@@ -24,7 +24,7 @@ primary button and focus ring.
 Status is shown with pale pills: mint for fine, amber for look at this soon, rose for broken, sky for
 information. Every pill has a word in it as well as a colour. Depth comes from translucency and blur
 rather than shadows. Everything you can tap is a capsule. Outfit does all the text work, IBM Plex
-Mono handles labels and machine output, and Instrument Serif appears once per screen at most. A faint
+Mono handles labels and machine output, and Instrument Serif is kept for quotations and the drop cap. A faint
 noise grain and soft colour blooms sit behind the whole page.
 
 ## 2. Rules that do not bend
@@ -39,7 +39,7 @@ noise grain and soft colour blooms sit behind the whole page.
 6. Tappable means capsule. Cards are 18px. Textareas and inset panels are 12px.
 7. Shadows only on the top layer: modals, popovers, the floating panel. Everything else uses blur and
    a hairline border.
-8. The serif appears once per screen.
+8. Headings stay in Outfit. The serif is for quotations and the drop cap only.
 9. Charts get one axis, thin marks and direct labels. A forecast is the same line continued as dots.
 10. Dense rows stay one line until opened, and their buttons live inside the opened row.
 11. Never put a tall table and a short card in the same grid row. Use independent columns instead.
@@ -49,8 +49,8 @@ noise grain and soft colour blooms sit behind the whole page.
 ## 3. Tokens
 
 Set on `:root` for dark. The light theme flips them under `html.theme-light` and accents swap under
-`html.accent-teal`, `-ember` or `-lime`. Everything is defined in `proxima.css`, with full values in
-`tokens.json`.
+`html.accent-teal`, `-ember` or `-lime`. Everything is defined in `proxima.css`. The shared block is
+generated from `tokens.toml` in the Proxima repository; copy the stylesheet as it is.
 
 ```text
 SURFACES   --void #0A0B12 background · --panel #12141F · --panel-2 #181B2A
@@ -61,8 +61,11 @@ ACCENT     --accent #8D8DF5 · --accent-deep #5757D9 · --accent-ink for text on
 STATE      --mint, --amber, --rose, --sky, each with -fill and -line
 CHARTS     --ch-1 to --ch-5 · --ch-neutral for comparison · --gridline · --crosshair
 SHAPE      --r-s 8 · --r-m 12 · --r-l 18 · --r-xl 26 · --r-full 999
-TYPE       --font-ui Outfit, body weight 380 · --font-serif Instrument Serif
+TYPE       --font-ui Outfit, body weight 380 · --font-serif Instrument Serif (quotes only)
            --font-mono IBM Plex Mono
+           --fs-h1 48.3 · h2 38 · h3 29.8 · h4 23.5 · h5 18.4 · h6 14.5 = body
+           --fs-lg 16.4 · --fs-sm 12.9 · --fs-xs 11.4 · --fs-2xs 10.1
+MOTION     --dur-fast 120ms · --dur-base 180ms · --dur-move 250ms · --dur-slow 600ms · --ease · --ease-out
 ```
 
 ## 4. Recipes
@@ -103,7 +106,7 @@ Every class below already exists in `proxima.css`. Copy the structure as it is.
   <div class="k-val">31 / 33</div>
   <div class="k-foot"><span class="delta down">2 down</span><span>across 4 hosts</span></div>
 </div>
-<!-- kpi-serif for a number with weight, kpi-aurora for a gradient. One of each per screen at most -->
+<!-- kpi-aurora for a gradient. One per screen at most -->
 ```
 
 **Card, field, setting row**
@@ -192,7 +195,7 @@ Every class below already exists in `proxima.css`. Copy the structure as it is.
     <div class="topbar"><label class="input">…</label>
       <div class="right"><span class="live"><i></i>synced</span></div></div>
     <main class="main">
-      <div class="page-head"><div><h1>Good evening, <em class="serif-em">Devansh.</em></h1>
+      <div class="page-head"><div><h1>Good evening, Devansh.</h1>
         <div class="when">SAT 26 JUL · 18:42</div></div>
         <div class="actions"><button class="btn btn-primary">New alert rule</button></div></div>
     </main>
@@ -203,8 +206,9 @@ Every class below already exists in `proxima.css`. Copy the structure as it is.
 **Type moments**
 
 ```html
-<div class="eyebrow">( <b>SECTION</b> · CONTEXT )</div>      <!-- mono, caps, in brackets -->
-<h1>Everything is <em class="serif-em">fine.</em></h1>       <!-- the serif, once per screen -->
+<div class="index-line"><span class="n">02</span><span class="t">Colour</span></div>   <!-- section number and name on a hairline -->
+<h1>Everything is fine.</h1>                                 <!-- headings stay in Outfit -->
+<blockquote class="pull-quote">A quotation.</blockquote>   <!-- the serif, for quotes -->
 <span class="t-label">( REQUESTS PER HOUR )</span>
 <span class="t-data">ganymede · vm on jupiter</span>
 ```
@@ -239,7 +243,7 @@ Work through these in order.
    - exactly one saturated colour visible per screen
    - every state colour paired with a word, icon or dot
    - everything tappable is a capsule, and only overlays have shadows
-   - the serif appears once at most, and eyebrows are mono caps
+   - no serif outside quotations and the drop cap, and sections open with an index line, never an eyebrow
    - the focus ring works on every interactive element
    - it still reads correctly with `theme-light` on the `html` element
    - no grid row pairs a tall table with a short card, the identity appears once, one save bar
