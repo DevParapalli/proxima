@@ -493,6 +493,16 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); width
 .meter i { flex: 1; height: 20px; border-radius: var(--r-full); background: var(--glass-2); border: 1px solid var(--hairline-soft); }
 .meter i.f { background: var(--ch-1); border-color: transparent; }
 .meter i.f.warn { background: var(--amber); }
+/* stacked bar: parts of one whole, the uncovered remainder is the empty track. The min(3px, w × 1000)
+   keeps a 3px floor and a 3px gap for any part above zero, and gives a 0% part neither. */
+.stackbar { display: flex; height: 20px; margin-top: 12px; border-radius: var(--r-full); background: var(--glass-2); border: 1px solid var(--hairline); overflow: hidden; }
+.stackbar i { flex: 0 1 var(--w); min-width: min(3px, calc(var(--w) * 1000)); background: var(--c); transition: flex-basis var(--dur-move) var(--ease-out); }
+.stackbar i + i { margin-left: min(3px, calc(var(--w) * 1000)); }
+.stackbar-legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px 22px; margin-top: 14px; }
+.stackbar-legend dt { display: flex; align-items: center; gap: 8px; font-size: var(--fs-sm); color: var(--ink-mid); }
+.stackbar-legend dt i { width: 9px; height: 9px; border-radius: 3px; background: var(--c); flex: none; }
+.stackbar-legend dd { margin: 2px 0 0 17px; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--ink-low); font-variant-numeric: tabular-nums; }
+.stackbar-legend dd b { margin-right: 6px; font-weight: 500; color: var(--ink-hi); }
 /* legend */
 .legend { display: flex; gap: 16px; margin-top: 12px; font-size: var(--fs-xs); color: var(--ink-low); flex-wrap: wrap; }
 .legend .li { display: inline-flex; align-items: center; gap: 6px; }

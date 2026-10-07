@@ -127,6 +127,23 @@ Every class below already exists in `proxima.css`. Copy the structure as it is.
 </div>
 ```
 
+**Parts of a whole**
+
+```html
+<div class="stackbar" role="img" aria-label="1,515 source lines: 1,497 in the target ledger, 9 merged duplicates, 9 held back by a person">
+  <i style="--w: 98.8%; --c: var(--ch-1)"></i>
+  <i style="--w: 0.6%; --c: var(--ch-2)"></i>
+  <i style="--w: 0.6%; --c: var(--ch-3)"></i>
+</div>
+<dl class="stackbar-legend">
+  <div><dt><i style="--c: var(--ch-1)"></i>In the target ledger</dt><dd><b>1,497</b>98.8%</dd></div>
+  <div><dt><i style="--c: var(--ch-2)"></i>Merged duplicates</dt><dd><b>9</b>0.6%</dd></div>
+  <div><dt><i style="--c: var(--ch-3)"></i>Held back by a person</dt><dd><b>9</b>0.6%</dd></div>
+</dl>
+<!-- shares under 100% leave the empty track showing; a part at 0% takes no space.
+     Keep --ch-neutral for a part that may fade: as a sliver it vanishes into the track -->
+```
+
 **Expandable row**
 
 ```html
@@ -252,7 +269,9 @@ Work through these in order.
 
 Use the tokens, never a raw hex. Match the file's habits: one line per rule, a token for every
 colour, radius and font, hover states that shift brightness or background rather than scale, and
-transitions of 0.2s or less on `background`, `color`, `filter` and `transform` only.
+transitions of 0.2s or less on `background`, `color`, `filter` and `transform` only. The one
+exception is a chart mark whose length is the data, such as a `.stackbar` part or a `.brow .bar`: it
+may transition `width` or `flex-basis` over `var(--dur-move)` with `var(--ease-out)`.
 
 A new state colour follows the same three step pattern as the others: a base for text, a fill at
 roughly 12 percent alpha, and a border line at roughly 28 percent.

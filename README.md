@@ -84,6 +84,7 @@ no top bar to host the button.
 - `DESIGN-SYSTEM.md`: design principles, token definitions, spacing and type scales
 - `tokens.toml`: tokens shared with Centauri
 - `scripts/tokens.py`: regenerates the shared token block in `css/proxima.css`
+- `scripts/shots.py`: checks the stacked bar demo in `docs.html` across themes, accents and a 375px width, and saves screenshots
 - `PROXIMA.md`: portable usage notes and recipes for buttons, cards, fields, tables, and layout
 - `LICENSE`: licence for the project
 

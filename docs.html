@@ -259,7 +259,7 @@
       <header>
         <div class="index-line"><span class="n">07</span><span class="t">Charts</span></div>
         <h2>Thin marks, labelled directly</h2>
-        <p>One line with a dotted forecast on the end, comparison bars with the subject picked out, and a segmented meter. Text always uses text colours. Colour belongs to the marks.</p>
+        <p>One line with a dotted forecast on the end, comparison bars with the subject picked out, a segmented meter, and a stacked bar that splits one whole into its parts. Text always uses text colours. Colour belongs to the marks.</p>
       </header>
       <div class="grid g2">
         <div class="card chart-card">
@@ -285,6 +285,24 @@
             <i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f warn"></i><i></i><i></i>
           </div>
         </div>
+      </div>
+      <div class="card chart-card" style="margin-top:14px">
+        <h3>Source lines</h3>
+        <div class="sub" style="margin-bottom:0">1,515 read · every line accounted for</div>
+        <div class="stackbar" role="img" aria-label="1,515 source lines: 1,497 in the target ledger, 9 merged duplicates, 9 held back by a person, 0 waiting on you, 0 not yet pushed">
+          <i style="--w: 98.8%; --c: var(--ch-1)"></i>
+          <i style="--w: 0.6%; --c: var(--ch-2)"></i>
+          <i style="--w: 0.6%; --c: var(--ch-3)"></i>
+          <i style="--w: 0%; --c: var(--ch-4)"></i>
+          <i style="--w: 0%; --c: var(--ch-5)"></i>
+        </div>
+        <dl class="stackbar-legend">
+          <div><dt><i style="--c: var(--ch-1)"></i>In the target ledger</dt><dd><b>1,497</b>98.8%</dd></div>
+          <div><dt><i style="--c: var(--ch-2)"></i>Merged duplicates</dt><dd><b>9</b>0.6%</dd></div>
+          <div><dt><i style="--c: var(--ch-3)"></i>Held back by a person</dt><dd><b>9</b>0.6%</dd></div>
+          <div><dt><i style="--c: var(--ch-4)"></i>Waiting on you</dt><dd><b>0</b>0%</dd></div>
+          <div><dt><i style="--c: var(--ch-5)"></i>Not yet pushed</dt><dd><b>0</b>0%</dd></div>
+        </dl>
       </div>
       <div class="rule-note">rule: one axis, always. Two measures on different scales become two charts, never one chart with two axes.</div>
     </section>

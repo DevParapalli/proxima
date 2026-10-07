@@ -34,6 +34,7 @@ design-system/
 ├── DESIGN-SYSTEM.md         this file
 ├── tokens.toml              tokens shared with Centauri (canonical copy)
 ├── scripts/tokens.py        regenerates the shared token blocks in proxima.css
+├── scripts/shots.py         checks and screenshots the stacked bar demo in docs.html
 └── PROXIMA.md               the portable kit
 ```
 
@@ -198,6 +199,10 @@ for panels that slide, `--dur-slow` 600ms for atmosphere. `--ease` is the standa
 `--ease-out` the settling curve for things that arrive. Every duration is 0ms under
 `prefers-reduced-motion: reduce`.
 
+Layout properties are never transitioned, with one exception: a chart mark whose length is the data
+(`.stackbar` parts, `.brow .bar`) may transition `width` or `flex-basis` over `--dur-move` with
+`--ease-out`, so a live update reads as change rather than a jump.
+
 ### Atmosphere
 
 `#ink` is a full viewport canvas holding soft radial blooms in the accent family, blurred to 90px
@@ -330,6 +335,14 @@ surfaces means working out which one owns your edit.
   presses, drags and releases. `.bars` with `.brow` draws comparison bars, with `.lead` marking
   the subject. `.meter` is the segmented capsule meter. `.donut` is a plain SVG donut. Use one axis
   always. Two measures on different scales become two charts.
+- `.stackbar` with `.stackbar-legend` answers "where did all of it go?": one capsule split into the
+  parts of a single whole, each part an `<i>` carrying its share in `--w` and its colour in `--c`.
+  Whatever the parts leave uncovered is the empty track, so pending work reads as the empty part of
+  the bar. A part above zero keeps 3px, a part at zero takes no space. Parts take `--ch-1` to
+  `--ch-5` in order. `--ch-neutral` only suits a part that can afford to fade: as a 3px sliver it
+  nearly vanishes into the track. The legend names every part with its count and share. Use
+  `.meter` for one value against a capacity, `.bars` to compare separate items that do not add up,
+  and `.donut` when you have a square to spare rather than a wide card.
 - Colour on an SVG mark goes through `style="stroke: var(--ch-1)"`, never a `stroke="var(--ch-1)"`
   presentation attribute. WebKit does not substitute custom properties in presentation attributes, so
   the attribute form silently paints nothing there.
