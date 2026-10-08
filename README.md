@@ -7,6 +7,7 @@ A dark-first UI system for a homelab console, built around tinted neutrals, a si
 - `css/proxima.css` — the complete design system in one stylesheet
 - `js/proxima.js` — optional behavior for theme switching, background blooms, the mobile nav drawer, responsive charts with touch inspection, save bar state, and scroll spy
 - `fonts/`: local OFL font files for Outfit, Instrument Serif, and IBM Plex Mono
+- `deck/` — `slidev-theme-proxima`, the projected half of the deck system: Centauri's deck language as a Slidev theme on these tokens and fonts (see `deck/README.md`)
 - sample pages:
   - `index.html`
   - `dashboard.html`

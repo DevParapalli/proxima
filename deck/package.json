@@ -1,0 +1,56 @@
+{
+  "name": "slidev-theme-proxima",
+  "version": "0.2.0",
+  "description": "Slidev theme for the projected half of the Proxima design system: Centauri's deck language on Proxima's tokens and fonts.",
+  "author": "Devansh Parapalli <@DevParapalli>",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "keywords": [
+    "slidev-theme",
+    "slidev",
+    "proxima",
+    "centauri"
+  ],
+  "engines": {
+    "node": ">=22.12.0",
+    "slidev": ">=53.0.0"
+  },
+  "slidev": {
+    "colorSchema": "both",
+    "defaults": {
+      "colorSchema": "dark",
+      "aspectRatio": "16/9",
+      "canvasWidth": 980,
+      "highlighter": "shiki",
+      "lineNumbers": false,
+      "codeCopy": false,
+      "fonts": {
+        "provider": "none",
+        "sans": "Outfit",
+        "serif": "Instrument Serif",
+        "mono": "IBM Plex Mono"
+      }
+    }
+  },
+  "scripts": {
+    "dev": "slidev example.md",
+    "build": "slidev build example.md",
+    "export": "slidev export example.md",
+    "titles": "node scripts/titles.mjs example.md",
+    "tokens": "uv run scripts/tokens.py",
+    "test": "bash tests/run.sh"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^53.0.0",
+    "@slidev/parser": "53.0.0",
+    "@slidev/types": "^53.0.0",
+    "playwright-chromium": "^1.64.0",
+    "vue": "^3.5.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "markdown-it": "^14.1.0"
+    }
+  }
+}
