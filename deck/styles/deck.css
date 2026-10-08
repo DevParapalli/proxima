@@ -291,6 +291,11 @@
 .px-close > ol > li::before { color: var(--ink-low); font-weight: var(--px-w-strong); }
 .px-contact { position: absolute; left: var(--px-mx); bottom: var(--px-mb); font-size: var(--px-small); color: var(--ink-mid); margin: 0; }
 
+/* page: a page laid out elsewhere, full-bleed unless it takes the frame */
+.slidev-layout.px-page { padding: 0; }
+.slidev-layout.px-page[data-chrome] { padding: var(--px-mt) var(--px-mx) var(--px-mb); }
+.px-page-image { display: block; width: 100%; height: 100%; object-fit: contain; }
+
 /* -- 06 · components ---------------------------------------- */
 .px-tile { border-radius: var(--px-r-tile); padding: 18px; background: var(--px-tile); }
 .px-tile > :last-child { margin-bottom: 0; }

@@ -20,7 +20,7 @@ const pad = n => (n < 10 ? `0${n}` : String(n))
 let section = 0
 for (const s of data.slides) {
   const no = s.index + 1
-  const kind = s.frontmatter.layout ?? (no === 1 ? 'cover' : 'claim')
+  const kind = s.frontmatter.kind ?? s.frontmatter.layout ?? (no === 1 ? 'cover' : 'claim')
   const title = plain(s.frontmatter.title ?? s.title)
   if (kind === 'section') {
     section += 1

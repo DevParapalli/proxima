@@ -14,6 +14,10 @@ test('every layout is documented', () => {
   for (const l of layouts) assert.ok(documented.has(l), `layout ${l} is not documented`)
 })
 
+test('every script is documented', () => {
+  for (const f of readdirSync(resolve(ROOT, 'scripts'))) assert.ok(documented.has(f), `script ${f} is not documented`)
+})
+
 test('every public component is documented', () => {
   const components = readdirSync(resolve(ROOT, 'components')).map(f => f.replace(/\.vue$/, '')).filter(c => !c.startsWith('Px'))
   for (const c of components) assert.ok(documented.has(c), `component ${c} is not documented`)
@@ -23,7 +27,8 @@ test('the reference documents nothing that does not exist', () => {
   const names = new Set([
     ...readdirSync(resolve(ROOT, 'layouts')).map(f => f.replace(/\.vue$/, '')),
     ...readdirSync(resolve(ROOT, 'components')).map(f => f.replace(/\.vue$/, '')),
-    'themeConfig', 'tokens.py', 'titles.mjs',
+    ...readdirSync(resolve(ROOT, 'scripts')),
+    'themeConfig',
   ])
   for (const d of documented) assert.ok(names.has(d), `reference documents "${d}", which does not exist`)
 })

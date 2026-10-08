@@ -266,6 +266,23 @@ If a model can't beat this, it doesn't ship
 ## Baseline
 ```
 
+### `page`
+
+A page laid out elsewhere, written by [`import-pages.mjs`](#import-pagesmjs) from a Centauri document or a PDF, or set by hand. `image` is the page, served from the deck's `public/` directory. The page fills the canvas and draws no frame or bloom, since a Centauri page carries its own; `chrome: true` sets it inside Proxima's frame instead, for a document page presented with the deck's label, count and presenter. `fit` is `contain` (default) or `cover`. `kind:` records the slide's archetype (`cover`, `section`, `claim` and so on) so the frame, the outline and the titles script treat it as that kind; `title:` names it. A `page` slide MAY sit among native slides in one deck.
+
+```md
+---
+layout: page
+image: /class03-pages/07.svg
+kind: section
+title: Measuring it honestly
+---
+
+<!--
+Speaker notes for the page.
+-->
+```
+
 ### `outline`
 
 Generated from the section slides: one tile per section with its slide count. The body carries the title. `current` (1-based) highlights one section and sets the others back.
@@ -445,6 +462,20 @@ Rising columns with the value inside the top and the label in a pill at the base
 ### `tokens.py`
 
 `uv run deck/scripts/tokens.py` writes `styles/tokens.css` from `tokens.toml`: the shared neutrals, state colours, chart series and accents as attribute selectors on the slide wrapper, so a slide can take another accent or projection. `--check` exits 1 when the file is out of date.
+
+### `import-pages.mjs`
+
+```sh
+node scripts/import-pages.mjs decks/class03.typ --out decks -- --root . --input projection=light
+node scripts/import-pages.mjs report.pdf --chrome
+```
+
+Presents a Centauri document, or any PDF, through the deck. Every page becomes a `page` slide, so the result has the presenter view, notes, overview, drawing and export over pages laid out elsewhere. Output goes beside the input, or under `--out`: `<name>-pages.md`, the deck, and `public/<name>-pages/NN.svg`, the pages.
+
+- A `.typ` input is compiled with `typst compile --format svg`, one vector page each, and its titles, kinds and sections are read with `typst query` from the `<centauri-slide>` metadata Centauri writes. Arguments after `--` are passed to both typst calls. Requires `typst` on the path.
+- A `.pdf` input is rendered with `pdftocairo -svg`, and each page's title is the text block set largest on the page, read with `pdftotext -bbox-layout`. Requires poppler.
+- `--chrome` sets every page inside Proxima's frame with the input's name as the label.
+- Re-running regenerates the pages and the frontmatter and keeps the speaker notes written in the markdown.
 
 ### `titles.mjs`
 

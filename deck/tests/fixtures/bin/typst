@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# A stand-in for the typst CLI, for testing import-pages.mjs where typst is not
+# installed. `compile --format svg IN OUT{0p}.svg` writes three pages; `query`
+# prints the <centauri-slide> metadata those pages would carry.
+set -euo pipefail
+cmd="${1:-}"
+case "$cmd" in
+  compile)
+    out="${@: -1}"
+    for p in 1 2 3; do
+      f="${out//\{0p\}/0$p}"
+      printf '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540"><rect width="960" height="540" fill="#12141F"/><text x="60" y="120" font-size="48" fill="#EFF0F8">Stub page %s</text></svg>\n' "$p" > "$f"
+    done
+    ;;
+  query)
+    cat <<'JSON'
+[
+  {"n": 1, "kind": "cover", "title": {"func": "sequence", "children": [{"func": "text", "text": "Deck"}, {"func": "space"}, {"func": "text", "text": "title"}]}, "section": null},
+  {"n": 2, "kind": "section", "title": {"func": "text", "text": "First section"}, "section": {"title": {"func": "text", "text": "First section"}, "n": 2}},
+  {"n": 3, "kind": "claim", "title": {"func": "sequence", "children": [{"func": "text", "text": "A claim with "}, {"func": "strong", "body": {"func": "text", "text": "emphasis"}}]}, "section": {"title": {"func": "text", "text": "First section"}, "n": 2}}
+]
+JSON
+    ;;
+  *) echo "stub typst: unknown command $cmd" >&2; exit 1 ;;
+esac

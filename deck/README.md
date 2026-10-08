@@ -21,6 +21,7 @@ uv run deck/scripts/tokens.py --check   # exits 1 when the file is out of date
 - Slidev 53 or later. Two upstream breakages in Slidev 53.0.0 have workarounds that ship here and MUST be repeated in a deck's own project: a pnpm override pinning `markdown-it` to 14, and `build.cssMinify: false` in `vite.config.ts`. See [Setup](#setup).
 - For PDF, PPTX and PNG export: `playwright-chromium`. When Playwright cannot find its own browser, pass `--executable-path`.
 - Fonts: Outfit, Instrument Serif and IBM Plex Mono, served from Proxima's `fonts/`. No web font provider is used.
+- To present a Centauri document or a PDF: `typst` for `.typ` inputs, poppler (`pdftocairo`, `pdftotext`, `pdfinfo`) for `.pdf` inputs.
 
 ## Setup
 
@@ -123,8 +124,20 @@ The first heading of a slide is its title. Titles MUST be in sentence case and M
 | `exercise` | Task, `minutes` and an `::output::` slot, in the deck accent's partner. |
 | `appendix` | Dense evidence at the small size. |
 | `close` | Next actions as an ordered list, with `contact`. |
+| `page` | A page laid out elsewhere (a Centauri page, a PDF page) as an image, full-bleed or inside the frame with `chrome`. |
 
 Components for use inside a slide: `Cols` and `Col`, `Tile`, `Stats` and `Stat`, `Metric`, `BarsChart`, `ColumnsChart`. `**strong**` is the highlight; speaker notes are Slidev's `<!-- -->` comment at the end of a slide.
+
+## Presenting a Centauri document or a PDF
+
+`scripts/import-pages.mjs` turns a Centauri `.typ` deck, or any `.pdf`, into a deck of `page` slides, one per page, with the presenter view, notes, overview and export over them:
+
+```sh
+node ../proxima/deck/scripts/import-pages.mjs decks/class03.typ --out decks -- --root .
+pnpm slidev decks/class03-pages.md
+```
+
+A `.typ` input is compiled to one SVG per page with `typst compile --format svg` and keeps its slide titles, kinds and sections through `typst query`; a `.pdf` is rendered with pdftocairo and titles are read from the text. Pages go to `public/<name>-pages/`; notes written in the generated markdown survive re-runs. See the reference for options.
 
 ## Output
 
@@ -134,10 +147,11 @@ Components for use inside a slide: `Cols` and `Col`, `Tile`, `Stats` and `Stat`,
 | `mode=titles` | `node scripts/titles.mjs deck.md` |
 | `notes=true` | presenter mode at `/presenter`, or `slidev export --with-toc` for the PDF outline |
 | `mode=handout` | not provided; build the handout with Centauri |
+| a finished PDF | `scripts/import-pages.mjs` presents it as `page` slides |
 
 ## Tests
 
-`tests/run.sh`, run from `deck/`, MUST pass before a release. It requires pnpm, uv, `pdftotext` and a Chromium that `playwright-chromium` can launch (set `SLIDEV_CHROME` to a browser executable otherwise). It checks that the generated tokens are current; that `example.md` builds and exports in both projections with the frame, section cards and source lines printing the expected text; that a title ending in a full stop stops the build; that the titles script lists the deck's argument; and that `docs/reference.md` documents every layout and component, and no other.
+`tests/run.sh`, run from `deck/`, MUST pass before a release. It requires pnpm, uv, `pdftotext` and a Chromium that `playwright-chromium` can launch (set `SLIDEV_CHROME` to a browser executable otherwise). It checks that the generated tokens are current; that a PDF and a stubbed Centauri document import as page decks that build, export and keep their notes; that `example.md` builds and exports in both projections with the frame, section cards and source lines printing the expected text; that a title ending in a full stop stops the build; that the titles script lists the deck's argument; and that `docs/reference.md` documents every layout and component, and no other.
 
 ## Licence
 

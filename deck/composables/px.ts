@@ -48,8 +48,9 @@ export function pad(n: number): string {
   return n < 10 ? `0${n}` : String(n)
 }
 
-function kindOf(no: number, frontmatter: Record<string, any>): string {
-  return frontmatter.layout ?? (no === 1 ? 'cover' : 'claim')
+/** A slide's archetype: `kind:` when set (imported pages keep theirs), else the layout. */
+export function kindOf(no: number, frontmatter: Record<string, any>): string {
+  return frontmatter.kind ?? frontmatter.layout ?? (no === 1 ? 'cover' : 'claim')
 }
 
 /** The deck's structure, read from Slidev's slide list. */

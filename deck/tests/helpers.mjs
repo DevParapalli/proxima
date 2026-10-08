@@ -24,3 +24,9 @@ export function pdftotext(pdf) {
   if (r.status !== 0) throw new Error(`pdftotext failed: ${r.stderr}`)
   return r.stdout
 }
+
+export function pdfPages(pdf) {
+  const r = spawnSync('pdfinfo', [pdf], { encoding: 'utf8' })
+  if (r.status !== 0) throw new Error(`pdfinfo failed: ${r.stderr}`)
+  return Number(/^Pages:\s+(\d+)/m.exec(r.stdout)?.[1] ?? 0)
+}

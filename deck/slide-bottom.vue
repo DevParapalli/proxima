@@ -5,10 +5,12 @@
 // foot one. A `source:` line sits at the bottom left of the content area.
 import { useDarkMode } from '@slidev/client'
 import { computed, watchEffect } from 'vue'
-import { pad, usePx } from './composables/px'
+import { kindOf, pad, usePx } from './composables/px'
 
 const px = usePx('frame')
-const kind = computed<string>(() => px.frontmatter.layout ?? (px.page.value === 1 ? 'cover' : 'claim'))
+const kind = computed<string>(() => kindOf(px.page.value, px.frontmatter))
+// An imported page carries its own frame unless it asks for this one.
+const bare = computed(() => px.frontmatter.layout === 'page' && !px.frontmatter.chrome)
 const total = px.deck.total
 const sectionTitle = computed(() => kind.value === 'section' ? undefined : px.section.value?.title)
 
@@ -26,7 +28,7 @@ watchEffect(() => {
     :data-kind="kind"
     :data-accent="px.accent.value"
     :data-tone="px.tone.value"
-    :data-bloom="px.bloom.value"
+    :data-bloom="px.bloom.value && !bare"
     :style="{ '--px-lx': px.light.value.x, '--px-ly': px.light.value.y }"
   >
     <div class="px-ground" />
@@ -34,6 +36,7 @@ watchEffect(() => {
       <span v-if="px.frontmatter.number !== undefined" class="px-cover-number num">{{ px.frontmatter.number }}</span>
       <span v-if="px.frontmatter.side" class="px-cover-side">{{ px.frontmatter.side }}</span>
     </template>
+    <template v-if="!bare">
     <div class="px-frame-top">
       <span><img v-if="px.config.value.logoLeft" :src="px.config.value.logoLeft" alt=""><template v-else>{{ px.config.value.label }}</template></span>
       <span>{{ sectionTitle }}</span>
@@ -44,5 +47,6 @@ watchEffect(() => {
       <span v-if="kind !== 'cover'">{{ px.config.value.presenter }}</span>
     </div>
     <span v-if="px.frontmatter.source" class="px-source">Source: {{ px.frontmatter.source }}</span>
+    </template>
   </div>
 </template>
