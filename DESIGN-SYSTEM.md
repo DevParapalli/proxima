@@ -17,6 +17,7 @@ The portable version for restyling other repos is [`PROXIMA.md`](PROXIMA.md).
 design-system/
 ├── css/proxima.css          the whole system in one file
 ├── js/proxima.js            theme panel, background blooms, charts, save bar, scroll spy
+├── deck/                    slidev-theme-proxima: Centauri's decks for the screen (deck/README.md)
 ├── fonts/                   all typefaces, woff2, OFL licensed
 │   ├── outfit-variable.woff2            Outfit, variable 300 to 700
 │   ├── instrument-serif-regular.woff2   Instrument Serif 400
