@@ -78,7 +78,7 @@ no top bar to host the button.
 `tokens.toml` holds the values Proxima shares with Centauri, the print and slide half of the system: neutrals, accents, state colours, chart series and the type-scale rule. Typefaces and weights are not shared: Proxima is set in Outfit for screens, Centauri in the Source family for print. It is the canonical copy.
 
 - After editing `tokens.toml`, run `uv run scripts/tokens.py`. It rewrites only the block between the `tokens:begin` and `tokens:end` markers in `css/proxima.css`. `--check` exits 1 when the stylesheet is out of date.
-- Proxima and Centauri are released in lockstep, and Proxima leads. A Proxima release tag `vX.Y.Z` fixes `tokens.toml`; the Centauri release with the same version vendors it with `scripts/sync-tokens.py --ref vX.Y.Z`. The current version is 0.2.0.
+- Proxima and Centauri are released in lockstep, and Proxima leads. A Proxima release tag `vX.Y.Z` fixes `tokens.toml`; the Centauri release with the same version vendors it with `scripts/sync-tokens.py --ref vX.Y.Z`. The current version is 0.3.0.
 
 ## Files of note
 

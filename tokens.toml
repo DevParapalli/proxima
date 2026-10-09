@@ -9,7 +9,7 @@
 # spacing, motion, glass and page furniture belong to each system: Proxima is
 # set for screens, Centauri for print.
 
-version = "0.2.0"
+version = "0.3.0"
 
 [scale]
 # size(hN) = body * phi ^ ((6 - N) / k), h6 == body

@@ -1,4 +1,4 @@
-# Proxima Design System, v0.2.0
+# Proxima Design System, v0.3.0
 
 The design system behind my homelab console. It is dark first, built on tinted neutrals with one
 accent colour, and it is meant for looking at machines at night. One stylesheet, one behaviour file,
