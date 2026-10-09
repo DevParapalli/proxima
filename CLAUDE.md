@@ -17,10 +17,10 @@ Instructions for anyone, person or agent, committing to Proxima. They apply to e
 
 ## Checks before a commit
 
-- Proxima: `uv run scripts/tokens.py --check`.
+- Proxima: `uv run scripts/tokens.py --check && bash tests/tokens.sh`.
 - Deck: `cd deck && pnpm install && bash tests/run.sh`. Needs pnpm, uv, poppler (`pdftotext`, `pdftocairo`, `pdfinfo`) and a Chromium that `playwright-chromium` can launch; set `SLIDEV_CHROME` to a browser executable when it cannot find its own.
 - Tests ship with any behaviour change. `deck/docs/reference.md` MUST document every layout, component and script, and the suite checks that it does.
 
 ## Releases
 
-Proxima and Centauri are released in lockstep and Proxima leads: a tag `vX.Y.Z` fixes `tokens.toml`, Centauri vendors it with the same version, and `deck/package.json` carries the same version.
+Proxima and Centauri share major and minor versions; patch versions move independently. Proxima leads each minor: Centauri `X.Y.0` is released only after Proxima `vX.Y.0`. Only a major or minor release may change a token value in `tokens.toml`; a patch may fix its comments only. A Centauri `X.Y.*` release vendors `tokens.toml` from the latest Proxima `vX.Y.*` tag. `deck/package.json` carries Proxima's full version.

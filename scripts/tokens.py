@@ -10,11 +10,13 @@ Everything outside the markers is Proxima's own and is left untouched.
 
 Usage:
     uv run scripts/tokens.py           # rewrite css/proxima.css
-    uv run scripts/tokens.py --check   # exit 1 if the file is out of date
+    uv run scripts/tokens.py --check   # exit 1 if the file is out of date or the
+                                       # deck's major.minor differs from tokens.toml
 """
 
 from __future__ import annotations
 
+import json
 import sys
 import tomllib
 from pathlib import Path
@@ -22,6 +24,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 TOKENS = ROOT / "tokens.toml"
 CSS = ROOT / "css" / "proxima.css"
+DECK_PACKAGE = ROOT / "deck" / "package.json"
 
 BEGIN = "/* tokens:begin"
 END = "/* tokens:end */"
@@ -135,6 +138,15 @@ def main() -> int:
     if "--check" in sys.argv[1:]:
         if updated != css:
             print(f"{CSS} is out of date; run scripts/tokens.py", file=sys.stderr)
+            return 1
+        # Proxima and Centauri share major.minor; the deck carries Proxima's version.
+        deck = json.loads(DECK_PACKAGE.read_text(encoding="utf-8"))["version"]
+        if deck.split(".")[:2] != t["version"].split(".")[:2]:
+            print(
+                f"{DECK_PACKAGE} is {deck} but tokens.toml is {t['version']}; "
+                "major.minor must match",
+                file=sys.stderr,
+            )
             return 1
         return 0
     CSS.write_text(updated, encoding="utf-8")
